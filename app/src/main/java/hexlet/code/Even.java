@@ -2,8 +2,6 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.userName;
-
 public class Even {
 
     private static int generateRandomNumber() {
@@ -15,29 +13,29 @@ public class Even {
     public static void evenPlay() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         int correctAnswersCount = 0;
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         while (correctAnswersCount < 3) {
             int number = generateRandomNumber();
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
-            String answer = sc.nextLine();
+            String answer = scanner.nextLine();
             //System.out.println("");
             if (number % 2 == 0 && answer.equals("yes") || number % 2 != 0 && answer.equals("no")) {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             }
-            if (number % 2 == 0 && answer.equals("no")) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println("Let's try again, Bill!");
+            if (number % 2 == 0 && !answer.equals("yes")) {
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                System.out.println("Let's try again, " + Cli.userName + "!");
                 break;
-            }
-            if (number % 2 != 0 && answer.equals("yes")) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println("Let's try again, Bill!");
+            } else if (number % 2 != 0 && !answer.equals("no")) {
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+                System.out.println("Let's try again, " + Cli.userName + "!");
                 break;
+            } else if (correctAnswersCount == 3){
+                System.out.println("Congratulations, " + Cli.userName + "!");
             }
         }
-        System.out.println("Congratulations, " + userName);
-
     }
 }
+
