@@ -20,10 +20,6 @@ public class Even {
             System.out.print("Your answer: ");
             String answer = scanner.nextLine();
             //System.out.println("");
-            if (number % 2 == 0 && answer.equals("yes") || number % 2 != 0 && answer.equals("no")) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            }
             if (number % 2 == 0 && !answer.equals("yes")) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
                 System.out.println("Let's try again, " + Cli.userName + "!");
@@ -32,9 +28,13 @@ public class Even {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
                 System.out.println("Let's try again, " + Cli.userName + "!");
                 break;
-            } else if (correctAnswersCount == 3){
-                System.out.println("Congratulations, " + Cli.userName + "!");
+            } else {
+                System.out.println("Correct!");
+                correctAnswersCount++;
             }
+        }
+        if (correctAnswersCount == 3){
+            System.out.println("Congratulations, " + Cli.userName + "!");
         }
     }
 }
