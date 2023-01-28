@@ -1,6 +1,8 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
+
+import static hexlet.code.Engine.greet;
 
 public class App {
     public static void main(String[] args) {
@@ -20,15 +22,9 @@ public class App {
         System.out.println(" ");
 
         switch (choice) {
-            case 1 -> Cli.greet();
-            case 2 -> {
-                Cli.greet();
-                Even.evenPlay();
-            }
-            case 3 -> {
-                Cli.greet();
-                Calc.calcPlay();
-            }
+            case 1 -> greet();
+            case 2 -> Even.evenPlay();
+            case 3 -> Calc.calcPlay();
             default -> System.out.println("2222222");
         }
 
