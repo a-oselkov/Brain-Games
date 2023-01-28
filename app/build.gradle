@@ -21,7 +21,7 @@ test {
 }
 
 application {
-    mainClass = 'hexlet.code.App'
+    mainClass = 'hexlet.code.games.App'
 }
 
 compileJava {
@@ -30,7 +30,7 @@ compileJava {
 
 jar {
     manifest {
-        attributes "Main-Class": "hexlet.code.App"
+        attributes "Main-Class": "hexlet.code.games.App"
     }
 
     from {
