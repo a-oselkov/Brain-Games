@@ -20,16 +20,16 @@ public class App {
         System.out.println(" ");
 
         switch (choice) {
-            case 1 :
-                Cli.greet();
-                break;
-            case 2 :
+            case 1 -> Cli.greet();
+            case 2 -> {
                 Cli.greet();
                 Even.evenPlay();
-                break;
-
-            default:
-                System.out.println("2222222");
+            }
+            case 3 -> {
+                Cli.greet();
+                Calc.calcPlay();
+            }
+            default -> System.out.println("2222222");
         }
 
         scanner.close();

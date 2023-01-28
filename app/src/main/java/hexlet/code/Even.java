@@ -4,35 +4,34 @@ import java.util.Scanner;
 
 public class Even {
 
-    private static int generateRandomNumber() {
-        int maxNumber = 100;
+    public static int generateRandomNumber(int min, int max) {
         int randomNumber;
-        randomNumber = (int) (Math.random() * maxNumber);
+        max = max - min;
+        randomNumber = (int) (Math.random() * (max + 1) + min);
         return randomNumber;
     }
     public static void evenPlay() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         int correctAnswersCount = 0;
-        String wrongAnswer = "Let's try again, " + Cli.userName + "!";
         Scanner scanner = new Scanner(System.in);
+        String wrongAnswerMessage = "Let's try again, " + Cli.userName + "!";
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         while (correctAnswersCount < 3) {
-            int number = generateRandomNumber();
+            int number = generateRandomNumber(0, 100);
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             String answer = scanner.nextLine();
             //System.out.println("");
             if (number % 2 == 0 && !answer.equals("yes")) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
-                System.out.println(wrongAnswer);
+                System.out.println(wrongAnswerMessage);
                 break;
             } else if (number % 2 != 0 && !answer.equals("no")) {
                 System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
-                System.out.println(wrongAnswer);
+                System.out.println(wrongAnswerMessage);
                 break;
-            } else {
-                System.out.println("Correct!");
-                correctAnswersCount++;
             }
+            System.out.println("Correct!");
+            correctAnswersCount++;
         }
         if (correctAnswersCount == 3) {
             System.out.println("Congratulations, " + Cli.userName + "!");
