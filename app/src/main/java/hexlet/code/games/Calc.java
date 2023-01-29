@@ -28,7 +28,7 @@ public class Calc {
             if (i != Engine.correctAnswersCount) {
                 break;
             }
-            Calc.getRandomOperation(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100),Engine.generateRandomNumber(1, 3));
+            Calc.getRandomOperation(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(1, 3));
             Engine.playProgress(correctAnswer);
         }
     }

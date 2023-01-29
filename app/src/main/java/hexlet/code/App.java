@@ -1,13 +1,8 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Prime;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
-
-import static hexlet.code.Engine.greet;
 
 public class App {
     public static void main(String[] args) {
@@ -27,13 +22,14 @@ public class App {
         System.out.println(" ");
 
         switch (choice) {
-            case 1 -> greet();
+            case 1 -> Engine.greet();
             case 2 -> Even.playEven();
             case 3 -> Calc.playCalc();
             case 4 -> Gcd.playGcd();
-            //case 5 -> Gcd_test.playGcd_test();
+            case 5 -> Progression.playProgression();
             case 6 -> Prime.playPrime();
-            default -> System.out.println("2222222");
+            case 0 -> { }
+            default -> System.out.println("Restart the game and select 0-6");
         }
 
         scanner.close();

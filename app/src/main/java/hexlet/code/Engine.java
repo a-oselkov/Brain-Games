@@ -3,8 +3,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int number1 = Engine.generateRandomNumber(0, 100);
-    public static int number2 = Engine.generateRandomNumber(0, 100);
     public static String userName;                              //Имя пользователя.
     public static int correctAnswersCount = 0;                  //Счетчик верных ответов.
     public static int correctAnswer;                            //Верный ответ
@@ -32,7 +30,7 @@ public class Engine {
                 + "Correct answer was " + "'" + correctAnswer + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
-    public static void playProgress(int result) {
+    public static void playProgress(int result) {                  // Ход игры для результата - число
         Scanner scanner = new Scanner(System.in);
         System.out.print("Your answer: ");
         int answer = scanner.nextInt();
@@ -46,7 +44,7 @@ public class Engine {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
-    public static void playProgress(String result) {
+    public static void playProgress(String result) {                // Ход игры для результата - строка
         Scanner scanner = new Scanner(System.in);
         System.out.print("Your answer: ");
         String answer = scanner.nextLine();
@@ -59,9 +57,6 @@ public class Engine {
         if (Engine.correctAnswersCount == 3) {
             System.out.println("Congratulations, " + userName + "!");
         }
-    }
-    public static void getCongratulationMessage() {
-        System.out.println("Congratulations, " + userName + "!");
     }
 }
 
