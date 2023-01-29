@@ -8,7 +8,7 @@ public class Even {
         if (number % 2 == 0) {
             return "yes";
         }
-            return "no";
+        return "no";
     }
     public static void playEven() {
         Engine.greet();
