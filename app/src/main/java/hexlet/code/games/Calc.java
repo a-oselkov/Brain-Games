@@ -2,46 +2,34 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
+import static hexlet.code.Engine.correctAnswer;
 
 public class Calc {
-    static int result;
-    public static void getRandomOperator() {
-        int number1 = Engine.generateRandomNumber(0, 100);
-        int number2 = Engine.generateRandomNumber(0, 100);
-        int operator = Engine.generateRandomNumber(1, 3);
+    public static void getRandomOperator(int number1, int number2, int operator) {
         switch (operator) {
             case 1 -> {
                 System.out.println("Question: " + number1 + "+" + number2);
-                result = number1 + number2;
+                correctAnswer = number1 + number2;
             }
             case 2 -> {
                 System.out.println("Question: " + number1 + "-" + number2);
-                result = number1 - number2;
+                correctAnswer = number1 - number2;
             }
             default -> {
                 System.out.println("Question: " + number1 + "*" + number2);
-                result = number1 * number2;
+                correctAnswer = number1 * number2;
             }
         }
     }
     public static void playCalc() {
-        Scanner scanner = new Scanner(System.in);
         Engine.greet();
         System.out.println("What is the result of the expression?");
-        while (Engine.correctAnswersCount > 0) {
-            Calc.getRandomOperator();
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
-            if (answer != result) {
-                Engine.getWrongAnswerMessage(answer, result);
+        for (int i = 0; i < 3; i++) {
+            if (i != Engine.correctAnswersCount) {
                 break;
             }
-            System.out.println("Correct!");
-            Engine.correctAnswersCount--;
-            if (Engine.correctAnswersCount == 0) {
-                Engine.getCongratulationMessage();
-            }
+            Calc.getRandomOperator(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100),Engine.generateRandomNumber(1, 3));
+            Engine.playProgress(correctAnswer);
         }
     }
 }

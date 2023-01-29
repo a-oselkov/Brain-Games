@@ -1,8 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -30,6 +28,8 @@ public class App {
             case 2 -> Even.playEven();
             case 3 -> Calc.playCalc();
             case 4 -> Gcd.playGcd();
+            case 5 -> Gcd_test.playGcd_test();
+            case 6 -> Prime.playPrime();
             default -> System.out.println("2222222");
         }
 
