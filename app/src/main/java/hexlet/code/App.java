@@ -31,7 +31,6 @@ public class App {
             case 0 -> { }
             default -> System.out.println("Restart the game and select 0-6");
         }
-
         scanner.close();
     }
 }

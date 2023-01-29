@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswer;
+import static hexlet.code.Engine.correctAnswersCount;
 
 public class Calc {
     public static void getRandomOperation(int number1, int number2, int operator) {
@@ -25,7 +26,7 @@ public class Calc {
         Engine.greet();
         System.out.println("What is the result of the expression?");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             Calc.getRandomOperation(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(1, 3));

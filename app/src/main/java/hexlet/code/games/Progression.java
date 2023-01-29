@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswer;
+import static hexlet.code.Engine.correctAnswersCount;
 
 public class Progression {
     public static int getProgression(int fistNumber, int step, int missingNumberPlace) {
@@ -18,14 +19,14 @@ public class Progression {
             System.out.print(fistNumber + " ");
             fistNumber += step;
         }
-        System.out.println("");
+        System.out.println(" ");
         return correctAnswer;
     }
     public static void playProgression() {
         Engine.greet();
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             int answer = getProgression(Engine.generateRandomNumber(0, 20), Engine.generateRandomNumber(1, 10), Engine.generateRandomNumber(0, 10));

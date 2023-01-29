@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import static hexlet.code.Engine.correctAnswersCount;
+
 public class Prime {
     public static String getPrime(int number) {
         System.out.println("Question: " + number);
@@ -17,7 +19,7 @@ public class Prime {
         Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             String answer = getPrime(Engine.generateRandomNumber(0, 100));
