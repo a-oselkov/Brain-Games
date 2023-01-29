@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import static hexlet.code.Engine.correctAnswer;
 
 public class Calc {
-    public static void getRandomOperator(int number1, int number2, int operator) {
+    public static void getRandomOperation(int number1, int number2, int operator) {
         switch (operator) {
             case 1 -> {
                 System.out.println("Question: " + number1 + "+" + number2);
@@ -28,7 +28,7 @@ public class Calc {
             if (i != Engine.correctAnswersCount) {
                 break;
             }
-            Calc.getRandomOperator(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100),Engine.generateRandomNumber(1, 3));
+            Calc.getRandomOperation(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100),Engine.generateRandomNumber(1, 3));
             Engine.playProgress(correctAnswer);
         }
     }
