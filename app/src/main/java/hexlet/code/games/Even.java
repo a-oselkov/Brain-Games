@@ -5,11 +5,11 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Even {
-    public static void evenPlay() {
+    public static void playEven() {
         Scanner scanner = new Scanner(System.in);
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (Engine.correctAnswersCount < 3) {
+        while (Engine.correctAnswersCount > 0) {
             int number = Engine.generateRandomNumber(0, 100);
             String correctAnswerYes = "yes";
             String correctAnswerNo = "no";
@@ -23,10 +23,10 @@ public class Even {
                 Engine.getWrongAnswerMessage(answer, correctAnswerNo);
                 break;
             }
-            Engine.correctAnswersCount++;
+            Engine.correctAnswersCount--;
             System.out.println("Correct!");
         }
-        if (Engine.correctAnswersCount == 3) {
+        if (Engine.correctAnswersCount == 0) {
             Engine.getCongratulationMessage();
         }
     }

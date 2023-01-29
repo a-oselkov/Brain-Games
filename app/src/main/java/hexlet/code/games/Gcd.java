@@ -4,33 +4,26 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class Calc {
-    static int result;
-    public static void getRandomOperator() {
+public class Gcd {
+    public static int result;
+    public static void getGcd() {
         int number1 = Engine.generateRandomNumber(0, 100);
         int number2 = Engine.generateRandomNumber(0, 100);
-        int operator = Engine.generateRandomNumber(1, 3);
-        switch (operator) {
-            case 1 -> {
-                System.out.println("Question: " + number1 + "+" + number2);
-                result = number1 + number2;
+        result = number1;
+        while (result > 0) {
+            if ((number1 % result == 0) && (number2 % result == 0)) {
+                break;
             }
-            case 2 -> {
-                System.out.println("Question: " + number1 + "-" + number2);
-                result = number1 - number2;
-            }
-            default -> {
-                System.out.println("Question: " + number1 + "*" + number2);
-                result = number1 * number2;
-            }
+            result--;
         }
+        System.out.println("Question: " + number1 + " " + number2);
     }
-    public static void playCalc() {
+    public static void playGcd() {
         Scanner scanner = new Scanner(System.in);
         Engine.greet();
-        System.out.println("What is the result of the expression?");
+        System.out.println("Find the greatest common divisor of given numbers.");
         while (Engine.correctAnswersCount > 0) {
-            Calc.getRandomOperator();
+            Gcd.getGcd();
             System.out.print("Your answer: ");
             int answer = scanner.nextInt();
             if (answer != result) {
@@ -39,6 +32,7 @@ public class Calc {
             }
             System.out.println("Correct!");
             Engine.correctAnswersCount--;
+
             if (Engine.correctAnswersCount == 0) {
                 Engine.getCongratulationMessage();
             }

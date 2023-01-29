@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static String userName;                              //Имя пользователя.
-    public static int correctAnswersCount = 0;                  //Счетчик верных ответов.
+    public static int correctAnswersCount = 3;                  //Счетчик верных ответов.
 
     public static void greet() {                                //Приветствие.
         Scanner scanner = new Scanner(System.in);
