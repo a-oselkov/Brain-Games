@@ -25,10 +25,9 @@ public class Even {
             }
             Engine.correctAnswersCount++;
             System.out.println("Correct!");
-            if (Engine.correctAnswersCount == 3) {
-                Engine.getCongratulationMessage();
         }
-
+        if (Engine.correctAnswersCount == 3) {
+            Engine.getCongratulationMessage();
         }
     }
 }
