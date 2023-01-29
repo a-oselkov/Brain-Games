@@ -9,7 +9,7 @@ public class Even {
         Scanner scanner = new Scanner(System.in);
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        while (Engine.correctAnswersCount < 3) {
+        for (int i = 0; i < Engine.correctAnswersCount; i++) {
             int number = Engine.generateRandomNumber(0, 100);
             String correctAnswerYes = "yes";
             String correctAnswerNo = "no";
@@ -24,10 +24,10 @@ public class Even {
                 break;
             }
             System.out.println("Correct!");
-            Engine.correctAnswersCount++;
+            if (i == Engine.correctAnswersCount - 1) {
+                Engine.getCongratulationMessage();
         }
-        if (Engine.correctAnswersCount == 3) {
-            Engine.getCongratulationMessage();
+
         }
     }
 }
