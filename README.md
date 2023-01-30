@@ -9,4 +9,4 @@ make run-dist
 
 #### An example with a successful and unsuccessful outcome of each game:
 [![asciicast](https://asciinema.org/a/0E0jXDHY6eVTsu5vGBIgneL3S.svg)](https://asciinema.org/a/0E0jXDHY6eVTsu5vGBIgneL3S)
- 
+  

@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static String userName;                                    //Имя пользователя.
+    public static String userName;                                   //Имя пользователя.
     public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
     public static int correctAnswer;                                 //Верный ответ
 
@@ -18,10 +18,8 @@ public class Engine {
         System.out.println(" ");
     }
     public static int generateRandomNumber(int min, int max) {   //Генератор случайного числа в диапозоне [min ; max]
-        int randomNumber;
         max = max - min;
-        randomNumber = (int) (Math.random() * (max + 1) + min);
-        return randomNumber;
+        return (int) (Math.random() * (max + 1) + min);
     }
     public static void getWrongAnswerMessage(String answer, String correctAnswer) { //Сообщение при неправильном ответе.
         System.out.println("'" + answer + "'" + " is wrong answer ;(. "
