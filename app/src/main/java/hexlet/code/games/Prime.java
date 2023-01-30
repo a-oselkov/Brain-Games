@@ -3,10 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber1;
+import static hexlet.code.Engine.randomNumber;
 
 public class Prime {
-    private static String getPrime(int number) {
+    private static String takeNumber(int number) {
         System.out.println("Question: " + number);
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
@@ -23,7 +23,7 @@ public class Prime {
             if (i != correctAnswersCount) {
                 break;
             }
-            String answer = getPrime(randomNumber1);
+            String answer = takeNumber(randomNumber);
             Engine.playProgress(answer);
         }
     }

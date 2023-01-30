@@ -4,10 +4,10 @@ import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswer;
 import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber1;
+import static hexlet.code.Engine.randomNumber;
 
 public class Progression {
-    private static int getProgression(int fistNumber, int step, int missingNumberPlace) {
+    private static int takeProgression(int fistNumber, int step, int missingNumberPlace) {
         System.out.print("Question: ");
         for (int i = 0; i < missingNumberPlace; i++) {
             System.out.print(fistNumber + " ");
@@ -32,7 +32,7 @@ public class Progression {
             }
             int step = Engine.generateRandomNumber(1, 10);
             int missingNumberPlace = Engine.generateRandomNumber(0, 9);
-            int answer = getProgression(randomNumber1, step, missingNumberPlace);
+            int answer = takeProgression(randomNumber, step, missingNumberPlace);
             Engine.playProgress(answer);
         }
     }

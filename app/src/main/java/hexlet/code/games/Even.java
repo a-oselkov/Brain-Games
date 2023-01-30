@@ -3,10 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber1;
+import static hexlet.code.Engine.randomNumber;
 
 public class Even {
-    private static String getEven(int number) {
+    private static String takeNumber(int number) {
         System.out.println("Question: " + number);
         if (number % 2 == 0) {
             return "yes";
@@ -20,7 +20,7 @@ public class Even {
             if (i != correctAnswersCount) {
                 break;
             }
-            String answer = getEven(randomNumber1);
+            String answer = Even.takeNumber(randomNumber);
             Engine.playProgress(answer);
         }
     }

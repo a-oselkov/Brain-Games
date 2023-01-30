@@ -7,7 +7,7 @@ public class Engine {
     public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
     public static int correctAnswer;                                 //Верный ответ
 
-    public static int randomNumber1 = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
+    public static int randomNumber = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
     public static int randomNumber2 = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
     public static void greet() {                                     //Приветствие.
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +15,7 @@ public class Engine {
         System.out.println("May I have your name?");
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
-        System.out.println("");
+        System.out.println(" ");
     }
     public static int generateRandomNumber(int min, int max) {   //Генератор случайного числа в диапозоне [min ; max]
         int randomNumber;
@@ -35,7 +35,7 @@ public class Engine {
     }
     public static void playProgress(int result) {                  // Ход игры для результата - число
         System.out.print("Your answer: ");
-        randomNumber1 = generateRandomNumber(0, 100);
+        randomNumber = generateRandomNumber(0, 100);
         randomNumber2 = generateRandomNumber(0, 100);
         Scanner scanner = new Scanner(System.in);
         int answer = scanner.nextInt();
@@ -51,7 +51,7 @@ public class Engine {
     }
     public static void playProgress(String result) {                // Ход игры для результата - строка
         System.out.print("Your answer: ");
-        randomNumber1 = generateRandomNumber(0, 100);
+        randomNumber = generateRandomNumber(0, 100);
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         if (!answer.equals(result)) {
