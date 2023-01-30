@@ -4,10 +4,12 @@ import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswer;
 import static hexlet.code.Engine.correctAnswersCount;
+import static hexlet.code.Engine.randomNumber1;
+import static hexlet.code.Engine.randomNumber2;
 
 public class Calc {
-    public static void getRandomOperation(int number1, int number2, int operator) {
-        switch (operator) {
+    private static void getRandomOperation(int number1, int number2, int operation) {
+        switch (operation) {
             case 1 -> {
                 System.out.println("Question: " + number1 + "+" + number2);
                 correctAnswer = number1 + number2;
@@ -29,7 +31,8 @@ public class Calc {
             if (i != correctAnswersCount) {
                 break;
             }
-            Calc.getRandomOperation(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(1, 3));
+            int randomOperation = Engine.generateRandomNumber(1, 3);
+            Calc.getRandomOperation(randomNumber1, randomNumber2, randomOperation);
             Engine.playProgress(correctAnswer);
         }
     }

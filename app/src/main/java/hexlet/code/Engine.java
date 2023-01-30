@@ -3,10 +3,13 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static String userName;                              //Имя пользователя.
-    public static int correctAnswersCount = 0;                  //Счетчик верных ответов.
-    public static int correctAnswer;                            //Верный ответ
-    public static void greet() {                                //Приветствие.
+    public static String userName;                                    //Имя пользователя.
+    public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
+    public static int correctAnswer;                                 //Верный ответ
+
+    public static int randomNumber1 = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
+    public static int randomNumber2 = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
+    public static void greet() {                                     //Приветствие.
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
@@ -31,11 +34,13 @@ public class Engine {
         System.out.println("Let's try again, " + userName + "!");
     }
     public static void playProgress(int result) {                  // Ход игры для результата - число
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Your answer: ");
+        randomNumber1 = generateRandomNumber(0, 100);
+        randomNumber2 = generateRandomNumber(0, 100);
+        Scanner scanner = new Scanner(System.in);
         int answer = scanner.nextInt();
         if (answer != result) {
-            Engine.getWrongAnswerMessage(answer, result);
+            getWrongAnswerMessage(answer, result);
             return;
         }
         Engine.correctAnswersCount++;
@@ -45,16 +50,17 @@ public class Engine {
         }
     }
     public static void playProgress(String result) {                // Ход игры для результата - строка
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Your answer: ");
+        randomNumber1 = generateRandomNumber(0, 100);
+        Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         if (!answer.equals(result)) {
-            Engine.getWrongAnswerMessage(answer, result);
+            getWrongAnswerMessage(answer, result);
             return;
         }
-        Engine.correctAnswersCount++;
+        correctAnswersCount++;
         System.out.println("Correct!");
-        if (Engine.correctAnswersCount == 3) {
+        if (correctAnswersCount == 3) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

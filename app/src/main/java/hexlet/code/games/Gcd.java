@@ -4,21 +4,18 @@ import hexlet.code.Engine;
 
 import static hexlet.code.Engine.correctAnswer;
 import static hexlet.code.Engine.correctAnswersCount;
+import static hexlet.code.Engine.randomNumber1;
+import static hexlet.code.Engine.randomNumber2;
 
 public class Gcd {
-    public static int getGcd(int number1, int number2) {
-        if (number1 == 0) {
-            return number2;
+    private static void getGcd(int number1, int number2) {
+        System.out.println("Question: " + number1 + " " + number2);
+        while (number2 > 0) {
+            int temp = number1 % number2;
+            number1 = number2;
+            number2 = temp;
         }
         correctAnswer = number1;
-        while (correctAnswer >= 0) {
-            if ((number1 % correctAnswer == 0) && (number2 % correctAnswer == 0)) {
-                break;
-            }
-            correctAnswer--;
-        }
-        System.out.println("Question: " + number1 + " " + number2);
-        return correctAnswer;
     }
     public static void playGcd() {
         Engine.greet();
@@ -27,7 +24,7 @@ public class Gcd {
             if (i != correctAnswersCount) {
                 break;
             }
-            Gcd.getGcd(Engine.generateRandomNumber(0, 100), Engine.generateRandomNumber(0, 100));
+            Gcd.getGcd(randomNumber1, randomNumber2 + 1);
             Engine.playProgress(correctAnswer);
         }
     }
