@@ -11,14 +11,14 @@ public class Engine {
     public static int randomNumber = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
     public static int randomNumber2 = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
 
-    public static void getWrongAnswerMessage(String answer, String correctAnswer) { //Сообщение при неправильном ответе.
+    public static void getWrongAnswerMessage(String answer, String Answer) { //Сообщение при неправильном ответе.
         System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + correctAnswer + "'.");
+                + "Correct answer was " + "'" + Answer + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
-    public static void getWrongAnswerMessage(int answer, int correctAnswer) {       //Сообщение при неправильном ответе.
+    public static void getWrongAnswerMessage(int answer, int Answer) {       //Сообщение при неправильном ответе.
         System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + correctAnswer + "'.");
+                + "Correct answer was " + "'" + Answer + "'.");
         System.out.println("Let's try again, " + userName + "!");
     }
     public static void playProgress(int result) {                  // Ход игры для результата - число

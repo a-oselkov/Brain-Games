@@ -3,7 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.correctAnswer;
+import static hexlet.code.Engine.correctAnswersCount;
+import static hexlet.code.Engine.randomNumber;
+import static hexlet.code.Engine.randomNumber2;
 
 public class Calc {
     private static void takeRandomOperation(int number1, int number2, int operation) {

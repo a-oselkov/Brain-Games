@@ -3,7 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.correctAnswer;
+import static hexlet.code.Engine.correctAnswersCount;
+import static hexlet.code.Engine.randomNumber;
 
 public class Progression {
     private static int takeProgression(int fistNumber, int step, int missingNumberPlace) {
