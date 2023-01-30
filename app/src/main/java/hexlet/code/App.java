@@ -22,17 +22,17 @@ public class App {
         System.out.print("Your choice: ");
 
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
         System.out.println(" ");
+        String choice = scanner.nextLine();
 
         switch (choice) {
-            case 1 -> Engine.greet();
-            case 2 -> Even.playEven();
-            case 3 -> Calc.playCalc();
-            case 4 -> Gcd.playGcd();
-            case 5 -> Progression.playProgression();
-            case 6 -> Prime.playPrime();
-            case 0 -> { }
+            case "1" -> Engine.greet();
+            case "2" -> Even.playEven();
+            case "3" -> Calc.playCalc();
+            case "4" -> Gcd.playGcd();
+            case "5" -> Progression.playProgression();
+            case "6" -> Prime.playPrime();
+            case "0" -> { }
             default -> System.out.println("Restart the game and select 0-6");
         }
         scanner.close();
