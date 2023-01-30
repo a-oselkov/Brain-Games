@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static String userName;                                   //Имя пользователя.
+    private static String userName;                                   //Имя пользователя.
     public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
     public static int correctAnswer;                                 //Верный ответ
 
