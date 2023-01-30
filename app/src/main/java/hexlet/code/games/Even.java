@@ -14,7 +14,7 @@ public class Even {
         return "no";
     }
     public static void playEven() {
-        Engine.greet();
+        Cli.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (int i = 0; i < 3; i++) {
             if (i != correctAnswersCount) {

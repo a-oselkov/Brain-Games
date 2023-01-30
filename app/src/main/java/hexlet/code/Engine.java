@@ -2,25 +2,15 @@ package hexlet.code;
 
 import java.util.Scanner;
 
+import static hexlet.code.games.Cli.userName;
+
 public class Engine {
-    private static String userName;                                   //Имя пользователя.
     public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
     public static int correctAnswer;                                 //Верный ответ
 
-    public static int randomNumber = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
-    public static int randomNumber2 = generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
-    public static void greet() {                                     //Приветствие.
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
-        userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
-        System.out.println(" ");
-    }
-    public static int generateRandomNumber(int min, int max) {   //Генератор случайного числа в диапозоне [min ; max]
-        max = max - min;
-        return (int) (Math.random() * (max + 1) + min);
-    }
+    public static int randomNumber = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
+    public static int randomNumber2 = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
+
     public static void getWrongAnswerMessage(String answer, String correctAnswer) { //Сообщение при неправильном ответе.
         System.out.println("'" + answer + "'" + " is wrong answer ;(. "
                 + "Correct answer was " + "'" + correctAnswer + "'.");
@@ -33,8 +23,8 @@ public class Engine {
     }
     public static void playProgress(int result) {                  // Ход игры для результата - число
         System.out.print("Your answer: ");
-        randomNumber = generateRandomNumber(0, 100);
-        randomNumber2 = generateRandomNumber(0, 100);
+        randomNumber = Utils.generateRandomNumber(0, 100);
+        randomNumber2 = Utils.generateRandomNumber(0, 100);
         Scanner scanner = new Scanner(System.in);
         int answer = scanner.nextInt();
         if (answer != result) {
@@ -49,7 +39,7 @@ public class Engine {
     }
     public static void playProgress(String result) {                // Ход игры для результата - строка
         System.out.print("Your answer: ");
-        randomNumber = generateRandomNumber(0, 100);
+        randomNumber = Utils.generateRandomNumber(0, 100);
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         if (!answer.equals(result)) {

@@ -1,11 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import static hexlet.code.Engine.correctAnswer;
-import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber;
-import static hexlet.code.Engine.randomNumber2;
+import static hexlet.code.Engine.*;
 
 public class Calc {
     private static void takeRandomOperation(int number1, int number2, int operation) {
@@ -25,13 +23,13 @@ public class Calc {
         }
     }
     public static void playCalc() {
-        Engine.greet();
+        Cli.greet();
         System.out.println("What is the result of the expression?");
         for (int i = 0; i < 3; i++) {
             if (i != correctAnswersCount) {
                 break;
             }
-            int randomOperation = Engine.generateRandomNumber(1, 3);
+            int randomOperation = Utils.generateRandomNumber(1, 3);
             Calc.takeRandomOperation(randomNumber, randomNumber2, randomOperation);
             Engine.playProgress(correctAnswer);
         }

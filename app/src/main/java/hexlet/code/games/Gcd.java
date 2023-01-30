@@ -18,7 +18,7 @@ public class Gcd {
         correctAnswer = number1;
     }
     public static void playGcd() {
-        Engine.greet();
+        Cli.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < 3; i++) {
             if (i != correctAnswersCount) {

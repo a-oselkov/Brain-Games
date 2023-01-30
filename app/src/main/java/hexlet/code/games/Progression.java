@@ -1,10 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import static hexlet.code.Engine.correctAnswer;
-import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber;
+import static hexlet.code.Engine.*;
 
 public class Progression {
     private static int takeProgression(int fistNumber, int step, int missingNumberPlace) {
@@ -24,14 +23,14 @@ public class Progression {
         return correctAnswer;
     }
     public static void playProgression() {
-        Engine.greet();
+        Cli.greet();
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < 3; i++) {
             if (i != correctAnswersCount) {
                 break;
             }
-            int step = Engine.generateRandomNumber(1, 10);
-            int missingNumberPlace = Engine.generateRandomNumber(0, 9);
+            int step = Utils.generateRandomNumber(1, 10);
+            int missingNumberPlace = Utils.generateRandomNumber(0, 9);
             int answer = takeProgression(randomNumber, step, missingNumberPlace);
             Engine.playProgress(answer);
         }
