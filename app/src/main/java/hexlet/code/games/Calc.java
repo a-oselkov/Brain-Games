@@ -28,7 +28,7 @@ public class Calc {
         Engine.greet();
         System.out.println("What is the result of the expression?");
         for (int i = 0; i < 3; i++) {
-            if (i != correctAnswersCount) {
+            if (i != Engine.correctAnswersCount) {
                 break;
             }
             int randomOperation = Engine.generateRandomNumber(1, 3);
