@@ -11,15 +11,15 @@ public class Calc {
     private static void takeRandomOperation(int number1, int number2, int operation) {
         switch (operation) {
             case 1 -> {
-                System.out.println("Question: " + number1 + "+" + number2);
+                System.out.println("Question: " + number1 + " + " + number2);
                 correctAnswer = number1 + number2;
             }
             case 2 -> {
-                System.out.println("Question: " + number1 + "-" + number2);
+                System.out.println("Question: " + number1 + " - " + number2);
                 correctAnswer = number1 - number2;
             }
             default -> {
-                System.out.println("Question: " + number1 + "*" + number2);
+                System.out.println("Question: " + number1 + " * " + number2);
                 correctAnswer = number1 * number2;
             }
         }
