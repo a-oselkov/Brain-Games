@@ -21,7 +21,7 @@ public class Gcd {
         Engine.greet();
         System.out.println("Find the greatest common divisor of given numbers.");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             Gcd.takeGcd(randomNumber, randomNumber2 + 1);

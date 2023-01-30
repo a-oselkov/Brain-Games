@@ -17,7 +17,7 @@ public class Even {
         Engine.greet();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             String answer = Even.takeNumber(randomNumber);

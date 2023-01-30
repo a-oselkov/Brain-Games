@@ -41,9 +41,9 @@ public class Engine {
             getWrongAnswerMessage(answer, result);
             return;
         }
-        Engine.correctAnswersCount++;
+        correctAnswersCount++;
         System.out.println("Correct!");
-        if (Engine.correctAnswersCount == 3) {
+        if (correctAnswersCount == 3) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }
@@ -56,9 +56,9 @@ public class Engine {
             getWrongAnswerMessage(answer, result);
             return;
         }
-        Engine.correctAnswersCount++;
+        correctAnswersCount++;
         System.out.println("Correct!");
-        if (Engine.correctAnswersCount == 3) {
+        if (correctAnswersCount == 3) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

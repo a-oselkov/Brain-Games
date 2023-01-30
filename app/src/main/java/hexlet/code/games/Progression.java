@@ -27,7 +27,7 @@ public class Progression {
         Engine.greet();
         System.out.println("What number is missing in the progression?");
         for (int i = 0; i < 3; i++) {
-            if (i != Engine.correctAnswersCount) {
+            if (i != correctAnswersCount) {
                 break;
             }
             int step = Engine.generateRandomNumber(1, 10);
