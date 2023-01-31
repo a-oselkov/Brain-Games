@@ -1,14 +1,17 @@
 package hexlet.code;
 
 import hexlet.code.games.Cli;
-import hexlet.code.games.Constants;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.choice;
 import static hexlet.code.Engine.playProgress;
+import static hexlet.code.games.Constants.*;
 
 public class App {
+    public static String choice;
+    public static String getChoice() {
+        return choice;
+    }
     public static void main(String[] args) {
 
         System.out.println("Please enter the game number and press Enter.");
@@ -27,11 +30,11 @@ public class App {
 
         switch (choice) {
             case "1" -> Cli.greet();
-            case "2" -> playProgress(Constants.EVEN_RULES);
-            case "3" -> playProgress(Constants.CALC_RULES);
-            case "4" -> playProgress(Constants.GCD_RULES);
-            case "5" -> playProgress(Constants.PROGRESSION_RULES);
-            case "6" -> playProgress(Constants.PRIME_RULES);
+            case "2" -> playProgress(EVEN_RULES);
+            case "3" -> playProgress(CALC_RULES);
+            case "4" -> playProgress(GCD_RULES);
+            case "5" -> playProgress(PROGRESSION_RULES);
+            case "6" -> playProgress(PRIME_RULES);
             case "0" -> { }
             default -> System.out.println("Restart the game and select 0-6");
         }

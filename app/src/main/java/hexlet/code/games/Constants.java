@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 public class Constants {
     public static final int MAX_NUMBER = 100;
-    public static final int MAX_MISSING_NUMBER_PLASE = 9;
+    public static final int MAX_MISSING_NUMBER_PLEASE = 9;
     public static final int MAX_STEP_PROGRESSION = 10;
     public static final int MAX_ROUNDS = 3;
     public static final String EVEN_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
