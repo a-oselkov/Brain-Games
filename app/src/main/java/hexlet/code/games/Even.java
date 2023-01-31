@@ -1,18 +1,19 @@
 package hexlet.code.games;
 
-import static hexlet.code.Utils.generateRandomNumber;
+import hexlet.code.Utils;
+
 import static hexlet.code.games.Constants.MAX_NUMBER;
 
 public class Even {
     public static String playEven() {
-        int number = generateRandomNumber(0, MAX_NUMBER);
-        String rightAnswer;
+        int number = Utils.generateRandomNumber(0, MAX_NUMBER);
+        String correctAnswer;
         System.out.println("Question: " + number);
         if (number % 2 == 0) {
-            rightAnswer = "yes";
+            correctAnswer = "yes";
         } else {
-            rightAnswer = "no";
+            correctAnswer = "no";
         }
-        return rightAnswer;
+        return correctAnswer;
     }
 }

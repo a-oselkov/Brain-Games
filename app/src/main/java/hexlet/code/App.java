@@ -5,11 +5,10 @@ import hexlet.code.games.Constants;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.playProgress;
 import static hexlet.code.Engine.choice;
+import static hexlet.code.Engine.playProgress;
 
 public class App {
-
     public static void main(String[] args) {
 
         System.out.println("Please enter the game number and press Enter.");

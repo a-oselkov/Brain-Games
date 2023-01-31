@@ -1,20 +1,20 @@
 package hexlet.code.games;
 
-import static hexlet.code.Utils.generateRandomNumber;
+import hexlet.code.Utils;
 
 public class Prime {
     public static String playPrime() {
-        int number = generateRandomNumber(0, 100);
-        String rightAnswer;
+        int number = Utils.generateRandomNumber(0, 100);
+        String correctAnswer;
         System.out.println("Question: " + number);
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
-                rightAnswer = "no";
-                return rightAnswer;
+                correctAnswer = "no";
+                return correctAnswer;
             }
         }
-        rightAnswer = "yes";
-        return rightAnswer;
+        correctAnswer = "yes";
+        return correctAnswer;
 
 
     }
