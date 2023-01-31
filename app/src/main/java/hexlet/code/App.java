@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Cli;
-
 import java.util.Scanner;
 
 import static hexlet.code.Engine.playProgress;
