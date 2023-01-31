@@ -1,40 +1,29 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.Utils;
-
-import static hexlet.code.Engine.correctAnswer;
-import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber;
-import static hexlet.code.Engine.randomNumber2;
+import static hexlet.code.Utils.generateRandomNumber;
+import static hexlet.code.games.Constants.MAX_NUMBER;
 
 public class Calc {
-    private static void takeRandomOperation(int number1, int number2, int operation) {
+    public static String playCalc() {
+        int number1 = generateRandomNumber(0, MAX_NUMBER);
+        int number2 = generateRandomNumber(0, MAX_NUMBER);
+        int operation = generateRandomNumber(0, 2);
+        String rightAnswer;
         switch (operation) {
-            case 1 -> {
+            case 1:
                 System.out.println("Question: " + number1 + " + " + number2);
-                correctAnswer = number1 + number2;
-            }
-            case 2 -> {
+                rightAnswer = String.valueOf(number1 + number2);
+                return rightAnswer;
+
+            case 2:
                 System.out.println("Question: " + number1 + " - " + number2);
-                correctAnswer = number1 - number2;
-            }
-            default -> {
+                rightAnswer = String.valueOf(number1 - number2);
+                return rightAnswer;
+
+            default:
                 System.out.println("Question: " + number1 + " * " + number2);
-                correctAnswer = number1 * number2;
-            }
-        }
-    }
-    public static void playCalc() {
-        Cli.greet();
-        System.out.println("What is the result of the expression?");
-        for (int i = 0; i < 3; i++) {
-            if (i != correctAnswersCount) {
-                break;
-            }
-            int randomOperation = Utils.generateRandomNumber(1, 3);
-            Calc.takeRandomOperation(randomNumber, randomNumber2, randomOperation);
-            Engine.playProgress(correctAnswer);
+                rightAnswer = String.valueOf(number1 * number2);
+                return rightAnswer;
         }
     }
 }

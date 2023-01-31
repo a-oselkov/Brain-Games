@@ -1,15 +1,15 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
 import hexlet.code.games.Cli;
-import hexlet.code.games.Even;
-import hexlet.code.games.Gcd;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
+import hexlet.code.games.Constants;
 
 import java.util.Scanner;
 
+import static hexlet.code.Engine.playProgress;
+import static hexlet.code.Engine.choice;
+
 public class App {
+
     public static void main(String[] args) {
 
         System.out.println("Please enter the game number and press Enter.");
@@ -24,15 +24,15 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(" ");
-        String choice = scanner.nextLine();
+        choice = scanner.nextLine();
 
         switch (choice) {
             case "1" -> Cli.greet();
-            case "2" -> Even.playEven();
-            case "3" -> Calc.playCalc();
-            case "4" -> Gcd.playGcd();
-            case "5" -> Progression.playProgression();
-            case "6" -> Prime.playPrime();
+            case "2" -> playProgress(Constants.EVEN_RULES);
+            case "3" -> playProgress(Constants.CALC_RULES);
+            case "4" -> playProgress(Constants.GCD_RULES);
+            case "5" -> playProgress(Constants.PROGRESSION_RULES);
+            case "6" -> playProgress(Constants.PRIME_RULES);
             case "0" -> { }
             default -> System.out.println("Restart the game and select 0-6");
         }

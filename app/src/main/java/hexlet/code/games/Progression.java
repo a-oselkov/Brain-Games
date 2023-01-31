@@ -1,40 +1,26 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.correctAnswer;
-import static hexlet.code.Engine.correctAnswersCount;
-import static hexlet.code.Engine.randomNumber;
-
 public class Progression {
-    private static int takeProgression(int fistNumber, int step, int missingNumberPlace) {
+    public static String playProgression() {
+        int fistNumber = Utils.generateRandomNumber(0, Constants.MAX_NUMBER);
+        int step = Utils.generateRandomNumber(1, Constants.MAX_STEP_PROGRESSION);
+        int missingNumberPlace = Utils.generateRandomNumber(0, Constants.MAX_MISSING_NUMBER_PLASE);
+        String rightAnswer;
         System.out.print("Question: ");
         for (int i = 0; i < missingNumberPlace; i++) {
             System.out.print(fistNumber + " ");
             fistNumber += step;
         }
         System.out.print(".. ");
-        correctAnswer = fistNumber;
+        rightAnswer = String.valueOf(fistNumber);
         fistNumber += step;
-        for (int i = missingNumberPlace; i < 9; i++) {
+        for (int i = missingNumberPlace; i < Constants.MAX_MISSING_NUMBER_PLASE; i++) {
             System.out.print(fistNumber + " ");
             fistNumber += step;
         }
         System.out.println(" ");
-        return correctAnswer;
-    }
-    public static void playProgression() {
-        Cli.greet();
-        System.out.println("What number is missing in the progression?");
-        for (int i = 0; i < 3; i++) {
-            if (i != correctAnswersCount) {
-                break;
-            }
-            int step = Utils.generateRandomNumber(1, 10);
-            int missingNumberPlace = Utils.generateRandomNumber(0, 9);
-            int answer = takeProgression(randomNumber, step, missingNumberPlace);
-            Engine.playProgress(answer);
-        }
+        return rightAnswer;
     }
 }

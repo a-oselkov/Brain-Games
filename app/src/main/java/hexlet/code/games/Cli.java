@@ -7,7 +7,7 @@ public class Cli {
     public static String getName() {
         return playerName;
     }
-    public static void greet() {                                     //Приветствие.
+    public static void greet() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner scanner = new Scanner(System.in);

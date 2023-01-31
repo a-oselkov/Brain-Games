@@ -4,52 +4,46 @@ import hexlet.code.games.Cli;
 
 import java.util.Scanner;
 
+import static hexlet.code.games.Calc.playCalc;
+import static hexlet.code.games.Even.playEven;
+import static hexlet.code.games.Gcd.playGcd;
+import static hexlet.code.games.Prime.playPrime;
+import static hexlet.code.games.Progression.playProgression;
+
 public class Engine {
-    public static int correctAnswersCount = 0;                       //Счетчик верных ответов.
-    public static int correctAnswer;                                 //Верный ответ
+    public static int correctAnswersCount = 0;
+    public static String choice;
 
-    public static int randomNumber = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
-    public static int randomNumber2 = Utils.generateRandomNumber(0, 100);  // Случайное число в заданном диапазоне
-
-    public static void getWrongAnswerMessage(String answer, String corAnswer) { //Сообщение при неправильном ответе.
-        System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + corAnswer + "'.");
-        System.out.println("Let's try again, " + Cli.getName() + "!");
-    }
-    public static void getWrongAnswerMessage(int answer, int corAnswer) {       //Сообщение при неправильном ответе.
-        System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                + "Correct answer was " + "'" + corAnswer + "'.");
-        System.out.println("Let's try again, " + Cli.getName() + "!");
-    }
-    public static void playProgress(int result) {                  // Ход игры для результата - число
-        System.out.print("Your answer: ");
-        randomNumber = Utils.generateRandomNumber(0, 100);
-        randomNumber2 = Utils.generateRandomNumber(0, 100);
-        Scanner scanner = new Scanner(System.in);
-        int answer = scanner.nextInt();
-        if (answer != result) {
-            getWrongAnswerMessage(answer, result);
-            return;
-        }
-        correctAnswersCount++;
-        System.out.println("Correct!");
-        if (correctAnswersCount == 3) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
-        }
-    }
-    public static void playProgress(String result) {                // Ход игры для результата - строка
-        System.out.print("Your answer: ");
-        randomNumber = Utils.generateRandomNumber(0, 100);
-        Scanner scanner = new Scanner(System.in);
-        String answer = scanner.nextLine();
-        if (!answer.equals(result)) {
-            getWrongAnswerMessage(answer, result);
-            return;
-        }
-        correctAnswersCount++;
-        System.out.println("Correct!");
-        if (correctAnswersCount == 3) {
-            System.out.println("Congratulations, " + Cli.getName() + "!");
+    public static void playProgress(String rules) {
+        String rightAnswer = "";
+        Cli.greet();
+        System.out.println(rules);
+        for (int i = 0; i < 3; i++) {
+            if (i != correctAnswersCount) {
+                break;
+            }
+            switch (choice) {
+                case "2" -> rightAnswer = playEven();
+                case "3" -> rightAnswer = playCalc();
+                case "4" -> rightAnswer = playGcd();
+                case "5" -> rightAnswer = playProgression();
+                case "6" -> rightAnswer = playPrime();
+                default -> { }
+            }
+            System.out.print("Your answer: ");
+            Scanner scanner = new Scanner(System.in);
+            String answer = scanner.nextLine();
+            if (!answer.equals(rightAnswer)) {
+                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
+                        + "Correct answer was " + "'" + rightAnswer + "'.");
+                System.out.println("Let's try again, " + Cli.getName() + "!");
+                return;
+            }
+            correctAnswersCount++;
+            System.out.println("Correct!");
+            if (correctAnswersCount == 3) {
+                System.out.println("Congratulations, " + Cli.getName() + "!");
+            }
         }
     }
 }
