@@ -11,33 +11,25 @@ import java.util.Scanner;
 import static hexlet.code.App.getChoice;
 import static hexlet.code.games.Constants.MAX_ROUNDS;
 public class Engine {
+    public static String play() {
+        String choice = getChoice();
+        return switch (choice) {
+            case "2" -> Even.playEven();
+            case "3" -> Calc.playCalc();
+            case "4" -> Gcd.playGcd();
+            case "5" -> Progression.playProgression();
+            case "6" -> Prime.playPrime();
+            default -> "";
+        };
+    }
     public static void playProgress(String rules) {
         int correctAnswersCount = 0;
-        String correctAnswer = "";
-        String choice = getChoice();
         Cli.greet();
+
         System.out.println(rules);
+        String correctAnswer = play();
 
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            switch (choice) {
-                case "2":
-                    correctAnswer = Even.playEven();
-                    break;
-                case "3":
-                    correctAnswer = Calc.playCalc();
-                    break;
-                case "4":
-                    correctAnswer = Gcd.playGcd();
-                    break;
-                case "5":
-                    correctAnswer = Progression.playProgression();
-                    break;
-                case "6":
-                    correctAnswer = Prime.playPrime();
-                    break;
-                default:
-                    break;
-            }
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.nextLine();
