@@ -9,14 +9,13 @@ import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
-import static hexlet.code.App.choice;
-
+import static hexlet.code.App.getChoice;
 import static hexlet.code.games.Constants.MAX_ROUNDS;
 public class Engine {
     public static void playProgress(String rules) {
         int correctAnswersCount = 0;
         String correctAnswer = "";
-
+        String choice = getChoice();
         Cli.greet();
         System.out.println(rules);
 

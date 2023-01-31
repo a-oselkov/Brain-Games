@@ -5,10 +5,14 @@ import hexlet.code.games.Cli;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.playProgress;
-import static hexlet.code.games.Constants.*;
+import static hexlet.code.games.Constants.CALC_RULES;
+import static hexlet.code.games.Constants.EVEN_RULES;
+import static hexlet.code.games.Constants.GCD_RULES;
+import static hexlet.code.games.Constants.PRIME_RULES;
+import static hexlet.code.games.Constants.PROGRESSION_RULES;
 
 public class App {
-    public static String choice;
+    private static String choice;
     public static String getChoice() {
         return choice;
     }
