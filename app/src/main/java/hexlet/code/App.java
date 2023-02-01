@@ -10,10 +10,6 @@ import static hexlet.code.games.Constants.PRIME_RULES;
 import static hexlet.code.games.Constants.PROGRESSION_RULES;
 
 public class App {
-    private static String choice;
-    public static String getChoice() {
-        return choice;
-    }
     public static void main(String[] args) {
 
         System.out.println("Please enter the game number and press Enter.");
@@ -28,7 +24,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(" ");
-        choice = scanner.nextLine();
+        String choice = scanner.nextLine();
 
         switch (choice) {
             case "1" -> Cli.greet();
