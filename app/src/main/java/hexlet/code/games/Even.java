@@ -8,16 +8,17 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 public class Even {
     private static final String EVEN_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void playEven() {
-        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
-        for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
+        String[] questions = new String[MAX_ROUNDS];
+        String[] answers = new String[MAX_ROUNDS];
+        for (int i = 0; i < MAX_ROUNDS; i++) {
             int number = Utils.generateRandomNumber();
-            ANSWERQUESTION[i] = "Question: " + number;
+            questions[i] = String.valueOf(number);
             if (number % 2 == 0) {
-                ANSWERQUESTION[i + 1] = "yes";
+                answers[i] = "yes";
             } else {
-                ANSWERQUESTION[i + 1] = "no";
+                answers[i] = "no";
             }
         }
-        Engine.playProgress(EVEN_RULES, ANSWERQUESTION);
+        Engine.playProgress(EVEN_RULES, questions, answers);
     }
 }

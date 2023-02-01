@@ -8,25 +8,29 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 public class Calc {
     private static final String CALC_RULES = "What is the result of the expression?";
     public static void playCalc() {
-        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
-        for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
+        String[] questions = new String[MAX_ROUNDS];
+        String[] answers = new String[MAX_ROUNDS];
+        for (int i = 0; i < MAX_ROUNDS; i++) {
 
             int number1 = Utils.generateRandomNumber();
             int number2 = Utils.generateRandomNumber();
-            int operation = Utils.generateRandomNumber(0, 2);
+            String operation = String.valueOf(Utils.generateRandomNumber(0, 2));
 
             switch (operation) {
-                case 1:
-                    ANSWERQUESTION[i] = "Question: " + number1 + " + " + number2;
-                    ANSWERQUESTION[i + 1] = String.valueOf(number1 + number2);
-                case 2:
-                    ANSWERQUESTION[i] = "Question: " + number1 + " - " + number2;
-                    ANSWERQUESTION[i + 1] = String.valueOf(number1 - number2);
+                case "1":
+                    questions[i] = number1 + " + " + number2;
+                    answers[i] = String.valueOf(number1 + number2);
+                    break;
+                case "2":
+                    questions[i] = number1 + " - " + number2;
+                    answers[i] = String.valueOf(number1 - number2);
+                    break;
                 default:
-                    ANSWERQUESTION[i] = "Question: " + number1 + " * " + number2;
-                    ANSWERQUESTION[i + 1] = String.valueOf(number1 * number2);
+                    questions[i] = number1 + " * " + number2;
+                    answers[i] = String.valueOf(number1 * number2);
+                    break;
             }
         }
-        Engine.playProgress(CALC_RULES, ANSWERQUESTION);
+        Engine.playProgress(CALC_RULES, questions, answers);
     }
 }
