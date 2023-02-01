@@ -12,10 +12,10 @@ public class Even {
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
             int number = Utils.generateRandomNumber();
             ANSWERQUESTION[i] = "Question: " + number;
+            ANSWERQUESTION[i + 1] = "no";
             if (number % 2 == 0) {
                 ANSWERQUESTION[i + 1] = "yes";
-            } else {
-                ANSWERQUESTION[i + 1] = "no";
+                break;
             }
         }
         Engine.playProgress(EVEN_RULES, ANSWERQUESTION);
