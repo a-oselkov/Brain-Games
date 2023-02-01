@@ -19,9 +19,8 @@ public class Prime {
                 if (number % j == 0) {
                     ANSWERQUESTION[i + 1] = "no";
                     break;
-                } else {
-                    ANSWERQUESTION[i + 1] = "yes";
                 }
+                ANSWERQUESTION[i + 1] = "yes";
             }
         }
         Engine.playProgress(PRIME_RULES, ANSWERQUESTION);
