@@ -15,12 +15,12 @@ public class Prime {
             int number = Utils.generateRandomNumber(0, MAX_NUMBER);
 
             ANSWERQUESTION[i] = "Question: " + number;
+            ANSWERQUESTION[i + 1] = "yes";
             for (int j = 2; j < number; j++) {
                 if (number % j == 0) {
                     ANSWERQUESTION[i + 1] = "no";
                     break;
                 }
-                ANSWERQUESTION[i + 1] = "yes";
             }
         }
         Engine.playProgress(PRIME_RULES, ANSWERQUESTION);
