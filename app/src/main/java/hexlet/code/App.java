@@ -1,12 +1,12 @@
 package hexlet.code;
 
-import java.util.Scanner;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
-import static hexlet.code.games.Calc.playCalc;
-import static hexlet.code.games.Even.playEven;
-import static hexlet.code.games.Gcd.playGcd;
-import static hexlet.code.games.Prime.playPrime;
-import static hexlet.code.games.Progression.playProgression;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
@@ -27,11 +27,11 @@ public class App {
 
         switch (choice) {
             case "1" -> Cli.greet();
-            case "2" -> playEven();
-            case "3" -> playCalc();
-            case "4" -> playGcd();
-            case "5" -> playProgression();
-            case "6" -> playPrime();
+            case "2" -> Even.playEven();
+            case "3" -> Calc.playCalc();
+            case "4" -> Gcd.playGcd();
+            case "5" -> Progression.playProgression();
+            case "6" -> Prime.playPrime();
             case "0" -> { }
             default -> System.out.println("Restart the game and select 0-6");
         }

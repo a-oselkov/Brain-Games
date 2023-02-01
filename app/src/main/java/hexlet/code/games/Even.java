@@ -3,21 +3,22 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.answerQuestion;
-import static hexlet.code.games.Constants.EVEN_RULES;
-import static hexlet.code.games.Constants.MAX_NUMBER;
+import static hexlet.code.Constants.MAX_NUMBER;
+import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Even {
+    private static final String EVEN_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static void playEven() {
-        for (int i = 0; i < answerQuestion.length - 1; i = i + 2) {
+        for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
             int number = Utils.generateRandomNumber(0, MAX_NUMBER);
-            answerQuestion[i] = "Question: " + number;
+            ANSWERQUESTION[i] = "Question: " + number;
             if (number % 2 == 0) {
-                answerQuestion[i + 1] = "yes";
+                ANSWERQUESTION[i + 1] = "yes";
             } else {
-                answerQuestion[i + 1] = "no";
+                ANSWERQUESTION[i + 1] = "no";
             }
         }
-        Engine.playProgress(EVEN_RULES);
+        Engine.playProgress(EVEN_RULES, ANSWERQUESTION);
     }
 }

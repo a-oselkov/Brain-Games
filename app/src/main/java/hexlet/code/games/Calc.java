@@ -3,13 +3,14 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.answerQuestion;
-import static hexlet.code.games.Constants.CALC_RULES;
-import static hexlet.code.games.Constants.MAX_NUMBER;
+import static hexlet.code.Constants.MAX_NUMBER;
+import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Calc {
+    private static final String CALC_RULES = "What is the result of the expression?";
+    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static void playCalc() {
-        for (int i = 0; i < answerQuestion.length - 1; i = i + 2) {
+        for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
             int number1 = Utils.generateRandomNumber(0, MAX_NUMBER);
             int number2 = Utils.generateRandomNumber(0, MAX_NUMBER);
@@ -17,16 +18,16 @@ public class Calc {
 
             switch (operation) {
                 case 1:
-                    answerQuestion[i] = "Question: " + number1 + " + " + number2;
-                    answerQuestion[i + 1] = String.valueOf(number1 + number2);
+                    ANSWERQUESTION[i] = "Question: " + number1 + " + " + number2;
+                    ANSWERQUESTION[i + 1] = String.valueOf(number1 + number2);
                 case 2:
-                    answerQuestion[i] = "Question: " + number1 + " - " + number2;
-                    answerQuestion[i + 1] = String.valueOf(number1 - number2);
+                    ANSWERQUESTION[i] = "Question: " + number1 + " - " + number2;
+                    ANSWERQUESTION[i + 1] = String.valueOf(number1 - number2);
                 default:
-                    answerQuestion[i] = "Question: " + number1 + " * " + number2;
-                    answerQuestion[i + 1] = String.valueOf(number1 * number2);
+                    ANSWERQUESTION[i] = "Question: " + number1 + " * " + number2;
+                    ANSWERQUESTION[i + 1] = String.valueOf(number1 * number2);
             }
         }
-        Engine.playProgress(CALC_RULES);
+        Engine.playProgress(CALC_RULES, ANSWERQUESTION);
     }
 }

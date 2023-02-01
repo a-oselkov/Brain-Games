@@ -2,17 +2,15 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.games.Constants.MAX_ROUNDS;
-
 public class Engine {
-    public static String[] answerQuestion = new String[MAX_ROUNDS * 2];
-    public static void playProgress(String rules) {
+    public static final int MAX_ROUNDS = 3;
+    public static void playProgress(String rules, String[] answerQuestion) {
         int correctAnswersCount = 0;
         Cli.greet();
 
         System.out.println(rules);
 
-        for (int i = 0; i < answerQuestion.length - 1; i = i + 2) {
+        for (int i = 0; i < answerQuestion.length; i = i + 2) {
             System.out.println(answerQuestion[i]);
             System.out.print("Your answer: ");
             Scanner scanner = new Scanner(System.in);
