@@ -7,8 +7,8 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Gcd {
     private static final String GCD_RULES = "Find the greatest common divisor of given numbers.";
-    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static void playGcd() {
+        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
             int number1 = Utils.generateRandomNumber();

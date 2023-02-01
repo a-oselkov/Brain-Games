@@ -7,8 +7,8 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Prime {
     private static final String PRIME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static void playPrime() {
+        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
             int number = Utils.generateRandomNumber();

@@ -32,7 +32,7 @@ public class App {
             case "4" -> Gcd.playGcd();
             case "5" -> Progression.playProgression();
             case "6" -> Prime.playPrime();
-            case "0" -> { }
+            case "0" -> System.out.println("Goodbye");
             default -> System.out.println("Restart the game and select 0-6");
         }
         scanner.close();

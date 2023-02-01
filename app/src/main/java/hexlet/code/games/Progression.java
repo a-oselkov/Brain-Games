@@ -7,10 +7,10 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Progression {
     private static final String PROGRESSION_RULES = "What number is missing in the progression?";
-    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static final int MAX_MISSING_NUMBER_PLEASE = 9;
     public static final int MAX_STEP_PROGRESSION = 10;
     public static void playProgression() {
+        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
             int fistNumber = Utils.generateRandomNumber();

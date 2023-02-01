@@ -7,8 +7,8 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Calc {
     private static final String CALC_RULES = "What is the result of the expression?";
-    private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
     public static void playCalc() {
+        String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
             int number1 = Utils.generateRandomNumber();
