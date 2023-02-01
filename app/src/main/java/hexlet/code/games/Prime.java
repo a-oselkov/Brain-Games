@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Constants.MAX_NUMBER;
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Prime {
@@ -12,7 +11,7 @@ public class Prime {
     public static void playPrime() {
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
-            int number = Utils.generateRandomNumber(0, MAX_NUMBER);
+            int number = Utils.generateRandomNumber();
 
             ANSWERQUESTION[i] = "Question: " + number;
             ANSWERQUESTION[i + 1] = "yes";

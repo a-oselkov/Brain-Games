@@ -3,18 +3,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Constants.MAX_MISSING_NUMBER_PLEASE;
-import static hexlet.code.Constants.MAX_NUMBER;
-import static hexlet.code.Constants.MAX_STEP_PROGRESSION;
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Progression {
     private static final String PROGRESSION_RULES = "What number is missing in the progression?";
     private static final String[] ANSWERQUESTION = new String[MAX_ROUNDS * 2];
+    public static final int MAX_MISSING_NUMBER_PLEASE = 9;
+    public static final int MAX_STEP_PROGRESSION = 10;
     public static void playProgression() {
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
-            int fistNumber = Utils.generateRandomNumber(0, MAX_NUMBER);
+            int fistNumber = Utils.generateRandomNumber();
             int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
             int missingNumberPlace = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
             String progression = "";

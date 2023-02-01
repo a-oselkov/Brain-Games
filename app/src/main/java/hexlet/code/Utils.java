@@ -5,4 +5,10 @@ public class Utils {
         max = max - min;
         return (int) (Math.random() * (max + 1) + min);
     }
+    public static int generateRandomNumber() {   //Генератор случайного числа в диапозоне [min ; max]
+        int min = 0;
+        int max = 100;
+        max = max - min;
+        return (int) (Math.random() * (max + 1) + min);
+    }
 }

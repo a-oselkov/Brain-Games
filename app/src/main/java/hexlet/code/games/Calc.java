@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import static hexlet.code.Constants.MAX_NUMBER;
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Calc {
@@ -12,8 +11,8 @@ public class Calc {
     public static void playCalc() {
         for (int i = 0; i < ANSWERQUESTION.length; i = i + 2) {
 
-            int number1 = Utils.generateRandomNumber(0, MAX_NUMBER);
-            int number2 = Utils.generateRandomNumber(0, MAX_NUMBER);
+            int number1 = Utils.generateRandomNumber();
+            int number2 = Utils.generateRandomNumber();
             int operation = Utils.generateRandomNumber(0, 2);
 
             switch (operation) {
