@@ -13,7 +13,7 @@ public class Gcd {
         for (int i = 0; i < MAX_ROUNDS; i++) {
 
             int number1 = Utils.generateRandomNumber();
-            int number2 = Utils.generateRandomNumber() + 1;
+            int number2 = Utils.generateRandomNumber();
 
             questions[i] = number1 + " " + number2;
 
@@ -22,7 +22,7 @@ public class Gcd {
                 number1 = number2;
                 number2 = temp;
             }
-            questions[i] = String.valueOf(number1);
+            answers[i] = String.valueOf(number1);
         }
         Engine.playProgress(GCD_RULES, questions, answers);
     }

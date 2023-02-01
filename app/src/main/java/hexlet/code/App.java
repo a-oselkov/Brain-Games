@@ -26,7 +26,7 @@ public class App {
         String choice = scanner.nextLine();
 
         switch (choice) {
-            case "1" -> Cli.greet();
+            case "1" -> Greeting.greet();
             case "2" -> Even.playEven();
             case "3" -> Calc.playCalc();
             case "4" -> Gcd.playGcd();
