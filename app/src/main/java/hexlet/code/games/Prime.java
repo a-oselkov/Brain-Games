@@ -10,7 +10,7 @@ public class Prime {
     private static String[] generateRoundQuestion() {
         String answer;
         String question;
-        int number = Utils.generateRandomNumber();
+        int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
         question = String.valueOf(number);
         answer = "yes";
         if (number == 1) {
@@ -30,9 +30,7 @@ public class Prime {
         String[] questionAnswerRound;
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerRound = generateRoundQuestion();
-            for (int j = 0; j < 2; j++) {
-                questionAnswerGame[i][j] = questionAnswerRound[j];
-            }
+            System.arraycopy(questionAnswerRound, 0, questionAnswerGame[i], 0, 2);
         }
         return questionAnswerGame;
     }

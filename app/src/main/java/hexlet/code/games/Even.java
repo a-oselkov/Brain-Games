@@ -26,9 +26,7 @@ public class Even {
         String[] questionAnswerRound;
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerRound = generateRoundQuestion();
-            for (int j = 0; j < 2; j++) {
-                questionAnswerGame[i][j] = questionAnswerRound[j];
-            }
+            System.arraycopy(questionAnswerRound, 0, questionAnswerGame[i], 0, 2);
         }
         return questionAnswerGame;
     }
