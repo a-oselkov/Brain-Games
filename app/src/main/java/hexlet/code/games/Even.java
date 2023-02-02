@@ -7,18 +7,30 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Even {
     private static final String EVEN_RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void playEven() {
-        String[] questions = new String[MAX_ROUNDS];
-        String[] answers = new String[MAX_ROUNDS];
-        for (int i = 0; i < MAX_ROUNDS; i++) {
-            int number = Utils.generateRandomNumber();
-            questions[i] = String.valueOf(number);
-            if (number % 2 == 0) {
-                answers[i] = "yes";
-            } else {
-                answers[i] = "no";
-            }
+
+    private static String[] generateRound() {
+        String answer;
+        String question;
+        int number = Utils.generateRandomNumber();
+        question = String.valueOf(number);
+        if (number % 2 == 0) {
+            answer = "yes";
+        } else {
+            answer = "no";
         }
-        Engine.playProgress(EVEN_RULES, questions, answers);
+        String[] questionAnswerRound = {question, answer};
+        return questionAnswerRound;
+    }
+    public static void playEven() {
+        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        String[] questionAnswerRound;
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            questionAnswerRound = generateRound();
+            questionAnswerGame[i][0] = questionAnswerRound[0];
+            questionAnswerGame[i][1] = questionAnswerRound[1];
+        }
+        //System.out.println(Arrays.deepToString(questionAnswerGame));
+        Engine.playProgress(EVEN_RULES, questionAnswerGame);
     }
 }
+

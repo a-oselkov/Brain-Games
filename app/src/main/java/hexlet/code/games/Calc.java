@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
