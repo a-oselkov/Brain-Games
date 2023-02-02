@@ -27,10 +27,8 @@ public class Prime {
     }
     private static String[][] generateGameQuestion() {
         String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
-        String[] questionAnswerRound;
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            questionAnswerRound = generateRoundQuestion();
-            System.arraycopy(questionAnswerRound, 0, questionAnswerGame[i], 0, 2);
+            questionAnswerGame[i] = generateRoundQuestion();
         }
         return questionAnswerGame;
     }
