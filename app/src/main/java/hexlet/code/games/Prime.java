@@ -22,8 +22,9 @@ public class Prime {
         String[] questionAnswerRound = {question, answer};
         return questionAnswerRound;
     }
-    private static String[][] generateGameQuestion(String[] questionAnswerRound) {
+    private static String[][] generateGameQuestion() {
         String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        String[] questionAnswerRound;
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerRound = generateRoundQuestion();
             questionAnswerGame[i][0] = questionAnswerRound[0];
@@ -32,6 +33,6 @@ public class Prime {
         return questionAnswerGame;
     }
     public static void playPrime() {
-        Engine.playGame(PRIME_RULES, generateGameQuestion(generateRoundQuestion()));
+        Engine.playGame(PRIME_RULES, generateGameQuestion());
     }
 }

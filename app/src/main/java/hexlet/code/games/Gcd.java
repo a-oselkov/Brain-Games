@@ -23,8 +23,9 @@ public class Gcd {
         String[] questionAnswerRound = {question, answer};
         return questionAnswerRound;
     }
-    private static String[][] generateGameQuestion(String[] questionAnswerRound) {
+    private static String[][] generateGameQuestion() {
         String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        String[] questionAnswerRound;
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerRound = generateRoundQuestion();
             questionAnswerGame[i][0] = questionAnswerRound[0];
@@ -33,6 +34,6 @@ public class Gcd {
         return questionAnswerGame;
     }
     public static void playGcd() {
-        Engine.playGame(GCD_RULES, generateGameQuestion(generateRoundQuestion()));
+        Engine.playGame(GCD_RULES, generateGameQuestion());
     }
 }
