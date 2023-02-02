@@ -2,6 +2,16 @@
 [![Actions Status](https://github.com/a-oselkov/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/a-oselkov/ava-project-61/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2261c78fecee67bda190/maintainability)](https://codeclimate.com/github/a-oselkov/java-project-61/maintainability)
 
+#### Description:
+"Brain games" is a set of five console games built on the principle of popular mobile applications for brain pumping. Each game asks questions that need to be answered correctly. After three correct answers, it is considered that the game is over. Incorrect answers end the game and offer to go through it again. 
+
+#### Games:
+ - Definition of an even number.
+ - Calculator. Arithmetic expressions that need to be calculated.
+ - Determination of the greatest common divisor.
+ - Progression. Search for missing numbers in a sequence of numbers.
+ - Definition of a prime number.
+
 #### To run the program from the console, use the command:
 ```sh
 make run-dist
