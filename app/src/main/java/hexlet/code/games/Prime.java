@@ -7,22 +7,31 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Prime {
     private static final String PRIME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static void playPrime() {
-        String[] questions = new String[MAX_ROUNDS];
-        String[] answers = new String[MAX_ROUNDS];
-        for (int i = 0; i < MAX_ROUNDS; i++) {
-
-            int number = Utils.generateRandomNumber();
-
-            questions[i] = String.valueOf(number);
-            answers[i] = "yes";
-            for (int j = 2; j < number; j++) {
-                if (number % j == 0) {
-                    answers[i] = "no";
-                    break;
-                }
+    private static String[] generateRoundQuestion() {
+        String answer;
+        String question;
+        int number = Utils.generateRandomNumber();
+        question = String.valueOf(number);
+        answer = "yes";
+        for (int j = 2; j < number; j++) {
+            if (number % j == 0) {
+                answer = "no";
+                break;
             }
         }
-        Engine.playProgress(PRIME_RULES, questions, answers);
+        String[] questionAnswerRound = {question, answer};
+        return questionAnswerRound;
+    }
+    private static String[][] generateGameQuestion(String[] questionAnswerRound) {
+        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            questionAnswerRound = generateRoundQuestion();
+            questionAnswerGame[i][0] = questionAnswerRound[0];
+            questionAnswerGame[i][1] = questionAnswerRound[1];
+        }
+        return questionAnswerGame;
+    }
+    public static void playPrime() {
+        Engine.playGame(PRIME_RULES, generateGameQuestion(generateRoundQuestion()));
     }
 }

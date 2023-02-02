@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_ROUNDS = 3;
-    public static void playProgress(String rules, String[][] questionsAnswersGame) {
+    public static void playGame(String rules, String[][] questionsAnswersGame) {
         String playerName = Greeting.greet();
 
         System.out.println(rules);

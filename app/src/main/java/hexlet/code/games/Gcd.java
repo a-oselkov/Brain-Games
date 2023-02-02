@@ -7,23 +7,32 @@ import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Gcd {
     private static final String GCD_RULES = "Find the greatest common divisor of given numbers.";
-    public static void playGcd() {
-        String[] questions = new String[MAX_ROUNDS];
-        String[] answers = new String[MAX_ROUNDS];
-        for (int i = 0; i < MAX_ROUNDS; i++) {
+    private static String[] generateRoundQuestion() {
+        String answer;
+        String question;
+        int number1 = Utils.generateRandomNumber();
+        int number2 = Utils.generateRandomNumber();
+        question = number1 + " " + number2;
 
-            int number1 = Utils.generateRandomNumber();
-            int number2 = Utils.generateRandomNumber();
-
-            questions[i] = number1 + " " + number2;
-
-            while (number2 > 0) {
-                int temp = number1 % number2;
-                number1 = number2;
-                number2 = temp;
-            }
-            answers[i] = String.valueOf(number1);
+        while (number2 > 0) {
+            int temp = number1 % number2;
+            number1 = number2;
+            number2 = temp;
         }
-        Engine.playProgress(GCD_RULES, questions, answers);
+        answer = String.valueOf(number1);
+        String[] questionAnswerRound = {question, answer};
+        return questionAnswerRound;
+    }
+    private static String[][] generateGameQuestion(String[] questionAnswerRound) {
+        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            questionAnswerRound = generateRoundQuestion();
+            questionAnswerGame[i][0] = questionAnswerRound[0];
+            questionAnswerGame[i][1] = questionAnswerRound[1];
+        }
+        return questionAnswerGame;
+    }
+    public static void playGcd() {
+        Engine.playGame(GCD_RULES, generateGameQuestion(generateRoundQuestion()));
     }
 }

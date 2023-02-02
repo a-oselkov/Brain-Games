@@ -9,29 +9,43 @@ public class Progression {
     private static final String PROGRESSION_RULES = "What number is missing in the progression?";
     public static final int MAX_MISSING_NUMBER_PLEASE = 9;
     public static final int MAX_STEP_PROGRESSION = 10;
-    public static void playProgression() {
-        String[] questions = new String[MAX_ROUNDS];
-        String[] answers = new String[MAX_ROUNDS];
-        for (int i = 0; i < MAX_ROUNDS; i++) {
+    private static String[] generateRoundQuestion() {
+        String answer;
+        String question;
+        String progression = "";
+        int fistNumberProgression = Utils.generateRandomNumber();
+        int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
+        int missingNumberPlace = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
 
-            int fistNumber = Utils.generateRandomNumber();
-            int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
-            int missingNumberPlace = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
-            String progression = "";
-
-            for (int j = 0; j < missingNumberPlace; j++) {
-                progression += fistNumber + " ";
-                fistNumber += step;
-            }
-            progression += ".. ";
-            answers[i] = String.valueOf(fistNumber);
-            fistNumber += step;
-            for (int j = missingNumberPlace; j < MAX_MISSING_NUMBER_PLEASE; j++) {
-                progression += fistNumber + " ";
-                fistNumber += step;
-            }
-            questions[i] = progression;
+        for (int j = 0; j < missingNumberPlace; j++) {
+            progression += fistNumberProgression + " ";
+            fistNumberProgression += step;
         }
-        Engine.playProgress(PROGRESSION_RULES, questions, answers);
+
+        progression += ".. ";
+        answer = String.valueOf(fistNumberProgression);
+        fistNumberProgression += step;
+
+        for (int j = missingNumberPlace; j < MAX_MISSING_NUMBER_PLEASE; j++) {
+            progression += fistNumberProgression + " ";
+            fistNumberProgression += step;
+        }
+
+        question = progression;
+        String[] questionAnswerRound = {question, answer};
+        return questionAnswerRound;
     }
+    private static String[][] generateGameQuestion(String[] questionAnswerRound) {
+        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            questionAnswerRound = generateRoundQuestion();
+            questionAnswerGame[i][0] = questionAnswerRound[0];
+            questionAnswerGame[i][1] = questionAnswerRound[1];
+        }
+        return questionAnswerGame;
+    }
+    public static void playProgression() {
+        Engine.playGame(PROGRESSION_RULES, generateGameQuestion(generateRoundQuestion()));
+    }
+
 }
