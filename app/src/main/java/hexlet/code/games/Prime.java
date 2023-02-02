@@ -13,6 +13,9 @@ public class Prime {
         int number = Utils.generateRandomNumber();
         question = String.valueOf(number);
         answer = "yes";
+        if (number == 1) {
+            answer = "no";
+        }
         for (int j = 2; j < number; j++) {
             if (number % j == 0) {
                 answer = "no";
