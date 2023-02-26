@@ -16,8 +16,8 @@ public class Engine {
             Scanner scanner = new Scanner(System.in);
             String answer = scanner.nextLine();
             if (!answer.equals(questionsAnswersGame[i][1])) {
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                        + "Correct answer was " + "'" + questionsAnswersGame[i][1] + "'.");
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.println("Correct answer was " + "'" + questionsAnswersGame[i][1] + "'.");
                 System.out.println("Let's try again, " + playerName + "!");
                 return;
             }
