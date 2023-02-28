@@ -13,6 +13,11 @@
  - Definition of a prime number.
 
 #### To run the program from the console, use the command:
+
+```sh
+make install
+```
+
 ```sh
 make run-dist
 ```
