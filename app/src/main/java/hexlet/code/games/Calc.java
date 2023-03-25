@@ -42,3 +42,4 @@ public class Calc {
         Engine.playGame(CALC_RULES, generateGameQuestion());
     }
 }
+
