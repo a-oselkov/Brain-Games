@@ -1,19 +1,19 @@
 package hexlet.code;
 
 public class QuestionInfo {
-    private String question;
-    private String answer;
+    private final String question;
+    private final String answer;
 
     public QuestionInfo(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }
 
-    public String getQuestion() {
+    public final String getQuestion() {
         return question;
     }
 
-    public String getAnswer() {
+    public final String getAnswer() {
         return answer;
     }
 }
