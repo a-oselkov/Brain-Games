@@ -4,9 +4,9 @@ public class QuestionInfo {
     private final String question;
     private final String answer;
 
-    public QuestionInfo(String question, String answer) {
-        this.question = question;
-        this.answer = answer;
+    public QuestionInfo(String q, String a) {
+        this.question = q;
+        this.answer = a;
     }
 
     public final String getQuestion() {
