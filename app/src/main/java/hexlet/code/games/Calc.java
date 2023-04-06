@@ -1,13 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.QuestionInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Calc {
     private static final String CALC_RULES = "What is the result of the expression?";
-    private static String[] generateRoundQuestion() {
+    private static QuestionInfo generateRoundQuestion() {
         String answer;
         String question;
         int number1 = Utils.generateRandomNumber();
@@ -28,11 +29,11 @@ public class Calc {
                 answer = String.valueOf(number1 * number2);
                 break;
         }
-        String[] questionAnswerRound = {question, answer};
-        return questionAnswerRound;
+        QuestionInfo questionAnswer = new QuestionInfo(question, answer);
+        return questionAnswer;
     }
-    private static String[][] generateGameQuestion() {
-        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+    private static QuestionInfo[] generateGameQuestion() {
+        QuestionInfo[] questionAnswerGame = new QuestionInfo[MAX_ROUNDS];
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerGame[i] = generateRoundQuestion();
         }

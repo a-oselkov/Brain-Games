@@ -1,13 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.QuestionInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Prime {
     private static final String PRIME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static String[] generateRoundQuestion() {
+    private static QuestionInfo generateRoundQuestion() {
         String answer;
         String question;
         int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
@@ -22,11 +23,11 @@ public class Prime {
                 break;
             }
         }
-        String[] questionAnswerRound = {question, answer};
-        return questionAnswerRound;
+        QuestionInfo questionAnswer = new QuestionInfo(question, answer);
+        return questionAnswer;
     }
-    private static String[][] generateGameQuestion() {
-        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+    private static QuestionInfo[] generateGameQuestion() {
+        QuestionInfo[] questionAnswerGame = new QuestionInfo[MAX_ROUNDS];
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerGame[i] = generateRoundQuestion();
         }

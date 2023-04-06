@@ -1,13 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.QuestionInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 
 public class Gcd {
     private static final String GCD_RULES = "Find the greatest common divisor of given numbers.";
-    private static String[] generateRoundQuestion() {
+    private static QuestionInfo generateRoundQuestion() {
         String answer;
         String question;
         int number1 = Utils.generateRandomNumber();
@@ -20,11 +21,11 @@ public class Gcd {
             number2 = temp;
         }
         answer = String.valueOf(number1);
-        String[] questionAnswerRound = {question, answer};
-        return questionAnswerRound;
+        QuestionInfo questionAnswer = new QuestionInfo(question, answer);
+        return questionAnswer;
     }
-    private static String[][] generateGameQuestion() {
-        String[][] questionAnswerGame = new String[MAX_ROUNDS][2];
+    private static QuestionInfo[] generateGameQuestion() {
+        QuestionInfo[] questionAnswerGame = new QuestionInfo[MAX_ROUNDS];
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerGame[i] = generateRoundQuestion();
         }
