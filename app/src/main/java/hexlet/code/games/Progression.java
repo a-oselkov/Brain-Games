@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.QuestionInfo;
+import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
@@ -10,7 +10,7 @@ public class Progression {
     private static final String PROGRESSION_RULES = "What number is missing in the progression?";
     public static final int MAX_MISSING_NUMBER_PLEASE = 9;
     public static final int MAX_STEP_PROGRESSION = 10;
-    private static QuestionInfo generateRoundQuestion() {
+    private static RoundInfo generateRoundQuestion() {
         String answer;
         String question;
         String progression = "";
@@ -34,11 +34,11 @@ public class Progression {
 
         question = progression;
 
-        QuestionInfo questionAnswer = new QuestionInfo(question, answer);
+        RoundInfo questionAnswer = new RoundInfo(question, answer);
         return questionAnswer;
     }
-    private static QuestionInfo[] generateGameQuestion() {
-        QuestionInfo[] questionAnswerGame = new QuestionInfo[MAX_ROUNDS];
+    private static RoundInfo[] generateGameQuestion() {
+        RoundInfo[] questionAnswerGame = new RoundInfo[MAX_ROUNDS];
         for (int i = 0; i < MAX_ROUNDS; i++) {
             questionAnswerGame[i] = generateRoundQuestion();
         }

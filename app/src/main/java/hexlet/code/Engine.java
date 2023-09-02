@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Engine {
     public static final int MAX_ROUNDS = 3;
 
-    public static void playGame(String rules, QuestionInfo[] questionsAnswersGame) {
+    public static void playGame(String rules, RoundInfo[] questionsAnswersGame) {
         String playerName = Greeting.greet();
 
         System.out.println(rules);
 
-        for (QuestionInfo round : questionsAnswersGame) {
+        for (RoundInfo round : questionsAnswersGame) {
             System.out.print(String.format("""
                     Question: %s
                     Your answer:\s""", round.getQuestion()));

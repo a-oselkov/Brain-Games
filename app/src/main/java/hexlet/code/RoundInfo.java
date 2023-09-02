@@ -1,10 +1,10 @@
 package hexlet.code;
 
-public class QuestionInfo {
+public class RoundInfo {
     private final String question;
     private final String answer;
 
-    public QuestionInfo(String q, String a) {
+    public RoundInfo(String q, String a) {
         this.question = q;
         this.answer = a;
     }
