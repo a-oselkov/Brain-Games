@@ -5,42 +5,35 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.roundInfo;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Calc {
-    private static final String CALC_RULES = "What is the result of the expression?";
-
-    public static void generateQuestionsAnswersForCalc() {
+    public static void generateCalcGame() {
+        Engine.rule = "What is the result of the expression?";
         String answer;
         String question;
-        int number1;
-        int number2;
         String operation;
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            number1 = Utils.generateRandomNumber();
-            number2 = Utils.generateRandomNumber();
+            int number1 = Utils.generateRandomNumber();
+            int number2 = Utils.generateRandomNumber();
             operation = String.valueOf(Utils.generateRandomNumber(0, 2));
 
-            switch (operation) {
-                case "1":
+            answer = switch (operation) {
+                case "1" -> {
                     question = number1 + " + " + number2;
-                    answer = String.valueOf(number1 + number2);
-                    break;
-                case "2":
+                    yield String.valueOf(number1 + number2);
+                }
+                case "2" -> {
                     question = number1 + " - " + number2;
-                    answer = String.valueOf(number1 - number2);
-                    break;
-                default:
+                    yield String.valueOf(number1 - number2);
+                }
+                default -> {
                     question = number1 + " * " + number2;
-                    answer = String.valueOf(number1 * number2);
-                    break;
-            }
-            roundInfo[i] = new RoundInfo(question, answer);
+                    yield String.valueOf(number1 * number2);
+                }
+            };
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
-    }
-
-    public static void playCalc() {
-        Engine.playGame(CALC_RULES, roundInfo);
     }
 }
 

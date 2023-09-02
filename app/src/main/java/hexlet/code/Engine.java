@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_ROUNDS = 3;
-    public static RoundInfo[] roundInfo = new RoundInfo[MAX_ROUNDS];
-
-    public static void playGame(String rules, RoundInfo[] questionsAnswersGame) {
+    public static final RoundInfo[] ROUND_INFO = new RoundInfo[MAX_ROUNDS];
+    public static String rule;
+    public static void playGame() {
         String playerName = Greeting.greet();
 
-        System.out.println(rules);
+        System.out.println(rule);
 
-        for (RoundInfo round : questionsAnswersGame) {
+        for (RoundInfo round : ROUND_INFO) {
             System.out.print(String.format("""
                     Question: %s
                     Your answer:\s""", round.getQuestion()));

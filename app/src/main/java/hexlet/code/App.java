@@ -28,29 +28,15 @@ public class App {
 
         switch (choice) {
             case "1" -> Greeting.greet();
-            case "2" -> {
-                Even.generateQuestionsAnswersForEven();
-                Even.playEven();
-            }
-            case "3" -> {
-                Calc.generateQuestionsAnswersForCalc();
-                Calc.playCalc();
-            }
-            case "4" -> {
-                Gcd.generateQuestionsAnswersForGcd();
-                Gcd.playGcd();
-            }
-            case "5" -> {
-                Progression.generateQuestionsAnswersForProgression();
-                Progression.playProgression();
-            }
-            case "6" -> {
-                Prime.generateQuestionsAnswersForPrime();
-                Prime.playPrime();
-            }
+            case "2" -> Even.generateEvenGame();
+            case "3" -> Calc.generateCalcGame();
+            case "4" -> Gcd.generateGcdGame();
+            case "5" -> Progression.generateProgressionGame();
+            case "6" -> Prime.generatePrimeGame();
             case "0" -> System.out.println("Goodbye");
             default -> System.out.println("Restart the game and select 0-6");
         }
+        Engine.playGame();
         scanner.close();
     }
 }

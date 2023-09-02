@@ -5,14 +5,14 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.roundInfo;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Progression {
-    private static final String PROGRESSION_RULES = "What number is missing in the progression?";
-    public static final int MAX_MISSING_NUMBER_PLEASE = 9;
-    public static final int MAX_STEP_PROGRESSION = 10;
+    private static final int MAX_MISSING_NUMBER_PLEASE = 9;
+    private static final int MAX_STEP_PROGRESSION = 10;
 
-    public static void generateQuestionsAnswersForProgression() {
+    public static void generateProgressionGame() {
+        Engine.rule = "What number is missing in the progression?";
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
@@ -34,14 +34,8 @@ public class Progression {
                 progression += fistNumberProgression + " ";
                 fistNumberProgression += step;
             }
-
             question = progression;
-
-            roundInfo[i] = new RoundInfo(question, answer);
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
-    }
-
-    public static void playProgression() {
-        Engine.playGame(PROGRESSION_RULES, roundInfo);
     }
 }

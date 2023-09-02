@@ -5,12 +5,11 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.roundInfo;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Prime {
-    private static final String PRIME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-
-    public static void generateQuestionsAnswersForPrime() {
+    public static void generatePrimeGame() {
+        Engine.rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
@@ -26,11 +25,7 @@ public class Prime {
                     break;
                 }
             }
-            roundInfo[i] = new RoundInfo(question, answer);
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
     }
-
-        public static void playPrime() {
-            Engine.playGame(PRIME_RULES, roundInfo);
-        }
-    }
+}
