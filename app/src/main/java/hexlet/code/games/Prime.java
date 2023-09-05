@@ -1,14 +1,16 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 import static hexlet.code.Engine.ROUND_INFO;
 
-public class Prime {
-    public static void generatePrimeGame() {
+public class Prime implements Gaming {
+    @Override
+    public void generateGame() {
         Engine.rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String answer;
         String question;

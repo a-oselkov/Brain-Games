@@ -1,14 +1,16 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 import static hexlet.code.Engine.ROUND_INFO;
 
-public class Even {
-    public static void generateEvenGame() {
+public class Even implements Gaming {
+    @Override
+    public void generateGame() {
         Engine.rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         String answer;
         String question;

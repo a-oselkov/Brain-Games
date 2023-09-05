@@ -1,14 +1,16 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
 import static hexlet.code.Engine.ROUND_INFO;
 
-public class Gcd {
-    public static void generateGcdGame() {
+public class Gcd implements Gaming {
+    @Override
+    public void generateGame() {
         Engine.rule = "Find the greatest common divisor of given numbers.";
         String answer;
         String question;
