@@ -19,17 +19,19 @@ public class Prime implements Gaming {
         for (int i = 0; i < Engine.getMaxRounds(); i++) {
             int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
             question = String.valueOf(number);
-            answer = "yes";
-            if (number == 1) {
-                answer = "no";
-            }
-            for (int j = 2; j < number; j++) {
-                if (number % j == 0) {
-                    answer = "no";
-                    break;
-                }
-            }
+            answer = isPrime(number);
             ROUND_INFO[i] = new RoundInfo(question, answer);
         }
+    }
+    private String isPrime(int number) {
+        if (number == 1) {
+            return "no";
+        }
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return "no";
+            }
+        }
+        return "yes";
     }
 }
