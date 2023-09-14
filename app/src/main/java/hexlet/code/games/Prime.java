@@ -10,8 +10,8 @@ import static hexlet.code.Engine.ROUND_INFO;
 
 public class Prime implements Gaming {
     @Override
-    public void generateGame() {
-        Engine.rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public void makeGame() {
+        Engine.RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {

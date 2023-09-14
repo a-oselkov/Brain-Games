@@ -10,8 +10,8 @@ import static hexlet.code.Engine.ROUND_INFO;
 
 public class Gcd implements Gaming {
     @Override
-    public void generateGame() {
-        Engine.rule = "Find the greatest common divisor of given numbers.";
+    public void makeGame() {
+        Engine.RULE = "Find the greatest common divisor of given numbers.";
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {

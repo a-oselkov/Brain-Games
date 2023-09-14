@@ -10,8 +10,8 @@ import static hexlet.code.Engine.ROUND_INFO;
 
 public class Calc implements Gaming {
     @Override
-    public void generateGame() {
-        Engine.rule = "What is the result of the expression?";
+    public void makeGame() {
+        Engine.RULE = "What is the result of the expression?";
         String answer;
         String question;
         String operation;

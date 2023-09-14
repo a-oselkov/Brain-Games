@@ -14,8 +14,8 @@ public class Progression implements Gaming {
     private static final int MAX_STEP_PROGRESSION = 10;
 
     @Override
-    public void generateGame() {
-        Engine.rule = "What number is missing in the progression?";
+    public void makeGame() {
+        Engine.RULE = "What number is missing in the progression?";
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
