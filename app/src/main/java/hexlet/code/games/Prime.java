@@ -5,15 +5,18 @@ import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_ROUNDS;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Prime implements Gaming {
+    public Prime() {
+        Engine.rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    }
+
     @Override
     public void makeGame() {
-        Engine.setRule("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String answer;
         String question;
-        for (int i = 0; i < MAX_ROUNDS; i++) {
+        for (int i = 0; i < Engine.getMaxRounds(); i++) {
             int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
             question = String.valueOf(number);
             answer = "yes";
@@ -26,7 +29,7 @@ public class Prime implements Gaming {
                     break;
                 }
             }
-            Engine.setRoundInfo(i, new RoundInfo(question, answer));
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
     }
 }

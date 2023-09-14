@@ -5,15 +5,18 @@ import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_ROUNDS;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Gcd implements Gaming {
+    public Gcd() {
+        Engine.rule = "Find the greatest common divisor of given numbers.";
+    }
+
     @Override
     public void makeGame() {
-        Engine.setRule("Find the greatest common divisor of given numbers.");
         String answer;
         String question;
-        for (int i = 0; i < MAX_ROUNDS; i++) {
+        for (int i = 0; i < Engine.getMaxRounds(); i++) {
             int number1 = Utils.generateRandomNumber();
             int number2 = Utils.generateRandomNumber();
             question = number1 + " " + number2;
@@ -24,8 +27,7 @@ public class Gcd implements Gaming {
                 number2 = temp;
             }
             answer = String.valueOf(number1);
-
-            Engine.setRoundInfo(i, new RoundInfo(question, answer));
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
     }
 }

@@ -3,9 +3,9 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static final int MAX_ROUNDS = 3;
-    private static final RoundInfo[] ROUND_INFO = new RoundInfo[MAX_ROUNDS];
-    private static String rule;
+    private static final int MAX_ROUNDS = 3;
+    public static final RoundInfo[] ROUND_INFO = new RoundInfo[MAX_ROUNDS];
+    public static String rule;
     private static boolean isExitSelected = false;
 
     private static void makeMenu() {
@@ -49,22 +49,20 @@ public class Engine {
                 if (!answer.equals(round.getAnswer())) {
                     System.out.println(String.format("""
                             \n'%s' is wrong answer ;(. Correct answer was '%s'.
-                            Let's try again, %s!""", answer, round.getAnswer(), playerName));
+                            Let's try again, %s!\n""", answer, round.getAnswer(), playerName));
+                    return;
                 }
                 System.out.println("Correct!\n");
             }
             System.out.println(String.format("Congratulations, %s, you won!\n", playerName));
         }
     }
-
-    public static void setRoundInfo(int index, RoundInfo roundInfo) {
-        ROUND_INFO[index] = roundInfo;
-    }
     public static boolean isExitSelected() {
         return isExitSelected;
     }
-    public static void setRule(String rule) {
-        Engine.rule = rule;
+
+    public static int getMaxRounds() {
+        return MAX_ROUNDS;
     }
 }
 

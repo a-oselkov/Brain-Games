@@ -5,16 +5,19 @@ import hexlet.code.Gaming;
 import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.MAX_ROUNDS;
+import static hexlet.code.Engine.ROUND_INFO;
 
 public class Calc implements Gaming {
+    public Calc() {
+        Engine.rule = "What is the result of the expression?";
+    }
+
     @Override
     public void makeGame() {
-        Engine.setRule("What is the result of the expression?");
         String answer;
         String question;
         String operation;
-        for (int i = 0; i < MAX_ROUNDS; i++) {
+        for (int i = 0; i < Engine.getMaxRounds(); i++) {
             int number1 = Utils.generateRandomNumber();
             int number2 = Utils.generateRandomNumber();
             operation = String.valueOf(Utils.generateRandomNumber(0, 2));
@@ -33,7 +36,7 @@ public class Calc implements Gaming {
                     yield String.valueOf(number1 * number2);
                 }
             };
-            Engine.setRoundInfo(i, new RoundInfo(question, answer));
+            ROUND_INFO[i] = new RoundInfo(question, answer);
         }
     }
 }
