@@ -6,12 +6,11 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.ROUND_INFO;
 
 public class Gcd implements Gaming {
     @Override
     public void makeGame() {
-        Engine.RULE = "Find the greatest common divisor of given numbers.";
+        Engine.setRule("Find the greatest common divisor of given numbers.");
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
@@ -25,7 +24,8 @@ public class Gcd implements Gaming {
                 number2 = temp;
             }
             answer = String.valueOf(number1);
-            ROUND_INFO[i] = new RoundInfo(question, answer);
+
+            Engine.setRoundInfo(i, new RoundInfo(question, answer));
         }
     }
 }

@@ -6,12 +6,11 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.ROUND_INFO;
 
 public class Prime implements Gaming {
     @Override
     public void makeGame() {
-        Engine.RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        Engine.setRule("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
@@ -27,7 +26,7 @@ public class Prime implements Gaming {
                     break;
                 }
             }
-            ROUND_INFO[i] = new RoundInfo(question, answer);
+            Engine.setRoundInfo(i, new RoundInfo(question, answer));
         }
     }
 }

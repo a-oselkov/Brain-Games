@@ -6,12 +6,11 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.ROUND_INFO;
 
 public class Calc implements Gaming {
     @Override
     public void makeGame() {
-        Engine.RULE = "What is the result of the expression?";
+        Engine.setRule("What is the result of the expression?");
         String answer;
         String question;
         String operation;
@@ -34,7 +33,7 @@ public class Calc implements Gaming {
                     yield String.valueOf(number1 * number2);
                 }
             };
-            ROUND_INFO[i] = new RoundInfo(question, answer);
+            Engine.setRoundInfo(i, new RoundInfo(question, answer));
         }
     }
 }

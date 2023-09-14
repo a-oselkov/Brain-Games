@@ -6,7 +6,6 @@ import hexlet.code.RoundInfo;
 import hexlet.code.Utils;
 
 import static hexlet.code.Engine.MAX_ROUNDS;
-import static hexlet.code.Engine.ROUND_INFO;
 
 public class Progression implements Gaming {
 
@@ -15,30 +14,31 @@ public class Progression implements Gaming {
 
     @Override
     public void makeGame() {
-        Engine.RULE = "What number is missing in the progression?";
+        Engine.setRule("What number is missing in the progression?");
         String answer;
         String question;
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            String progression = "";
+            StringBuilder progression = new StringBuilder();
             int fistNumberProgression = Utils.generateRandomNumber();
             int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
             int missingNumberPlace = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
 
             for (int j = 0; j < missingNumberPlace; j++) {
-                progression += fistNumberProgression + " ";
+                progression.append(fistNumberProgression).append(" ");
                 fistNumberProgression += step;
             }
 
-            progression += ".. ";
+            progression.append(".. ");
             answer = String.valueOf(fistNumberProgression);
             fistNumberProgression += step;
 
             for (int j = missingNumberPlace; j < MAX_MISSING_NUMBER_PLEASE; j++) {
-                progression += fistNumberProgression + " ";
+                progression.append(fistNumberProgression).append(" ");
                 fistNumberProgression += step;
             }
-            question = progression;
-            ROUND_INFO[i] = new RoundInfo(question, answer);
+            question = String.valueOf(progression);
+
+            Engine.setRoundInfo(i, new RoundInfo(question, answer));
         }
     }
 }
