@@ -19,13 +19,16 @@ public class Even implements Gaming {
         for (int i = 0; i < Engine.getMaxRounds(); i++) {
             int number = Utils.generateRandomNumber();
             question = String.valueOf(number);
-            if (number % 2 == 0) {
-                answer = "yes";
-            } else {
-                answer = "no";
-            }
+            answer = isEven(number);
             ROUND_INFO[i] = new RoundInfo(question, answer);
         }
+    }
+
+    public String isEven(int number) {
+        if (number % 2 == 0) {
+            return "yes";
+        }
+        return "no";
     }
 }
 

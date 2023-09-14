@@ -19,12 +19,12 @@ public class Engine {
     private static void selectMenuItem() {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-        System.out.println(String.format("You choice: %s - %s", choice, Games.values()[choice]));
         if (choice == Games.values().length) {
             System.out.println("Goodbye.");
             isExitSelected = true;
             return;
         }
+        System.out.println(String.format("You choice: %s - %s", choice, Games.values()[choice]));
         Gaming game;
         try {
             game = Games.values()[choice].getGame();
