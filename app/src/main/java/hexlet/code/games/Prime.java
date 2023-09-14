@@ -1,27 +1,16 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Gaming;
-import hexlet.code.RoundInfo;
+import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
-import static hexlet.code.Engine.ROUND_INFO;
-
 public class Prime implements Gaming {
-    public Prime() {
-        Engine.rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
-
     @Override
-    public void makeGame() {
-        String answer;
-        String question;
-        for (int i = 0; i < Engine.getMaxRounds(); i++) {
-            int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
-            question = String.valueOf(number);
-            answer = isPrime(number);
-            ROUND_INFO[i] = new RoundInfo(question, answer);
-        }
+    public RoundData makeGame() {
+        int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
+        String question = String.valueOf(number);
+        String answer = isPrime(number);
+        return new RoundData(question, answer);
     }
     private String isPrime(int number) {
         if (number == 1) {
