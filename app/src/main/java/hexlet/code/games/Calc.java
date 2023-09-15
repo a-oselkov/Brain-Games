@@ -1,12 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.Gaming;
+import hexlet.code.Gameable;
 import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
-public class Calc implements Gaming {
+public class Calc implements Gameable {
     @Override
-    public RoundData makeGame() {
+    public RoundData createRoundData() {
         int number1 = Utils.generateRandomNumber();
         int number2 = Utils.generateRandomNumber();
         String operation = String.valueOf(Utils.generateRandomNumber(0, 2));

@@ -6,41 +6,41 @@ public class Engine {
     private static final int MAX_ROUNDS = 3;
     public static final RoundData[] ROUND_DATA = new RoundData[MAX_ROUNDS];
     private static boolean isExitSelected = false;
+    private static boolean isAnswerCorrect;
 
-    private static void makeMenu() {
-        System.out.println(String.format("Select menu item 0-%s", Games.values().length));
-        for (int i = 0; i < Games.values().length; i++) {
-            System.out.println(String.format("%s - %s", i, Games.values()[i]));
+    private static void createMenu() {
+        System.out.println(String.format("Select menu item 0-%s", Game.values().length));
+        for (int i = 0; i < Game.values().length; i++) {
+            System.out.println(String.format("%s - %s", i, Game.values()[i]));
         }
-        System.out.println(String.format("%s - EXIT", Games.values().length));
+        System.out.println(String.format("%s - EXIT", Game.values().length));
     }
 
-    private static int selectMenuItem() {
+    private static Game selectMenuItem() {
+        int lastMenuItem = Game.values().length;
         Scanner scanner = new Scanner(System.in);
-        int choice = 0;
-        try {
-            choice = scanner.nextInt();
-            if (choice == Games.values().length) {
-                System.out.println("Goodbye.");
-                isExitSelected = true;
-                System.exit(0);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        int choice = scanner.nextInt();
+        if (choice == lastMenuItem) {
+            System.out.println("Goodbye.");
+            isExitSelected = true;
+            System.exit(0);
+        }
+        if (choice < 0 || choice > lastMenuItem) {
             System.out.println("Incorrect selection, please try again.");
             selectMenuItem();
         }
-        System.out.println(String.format("You choice: %s - %s", choice, Games.values()[choice]));
-        return choice;
+        Game game = Game.values()[choice];
+        System.out.println(String.format("You choice: %s - %s", choice, game));
+        return game;
     }
 
-    private static void makeGameData(int gameNumber) {
-        Gaming game = Games.values()[gameNumber].getGame();
+    private static void createGameData(Game game) {
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            ROUND_DATA[i] = game.makeGame();
+            ROUND_DATA[i] = game.getGame().createRoundData();
         }
     }
 
-    private static boolean playRound(RoundData roundData, String playerName) {
+    private static void playRound(RoundData roundData, String playerName) {
         System.out.print(String.format("""
                 Question: %s
                 Your answer:\s""", roundData.getQuestion()));
@@ -50,24 +50,24 @@ public class Engine {
             System.out.println(String.format("""
                     \n'%s' is wrong answer ;(. Correct answer was '%s'.
                     Let's try again, %s!\n""", answer, roundData.getAnswer(), playerName));
-            return false;
+            isAnswerCorrect = false;
+            return;
         }
         System.out.println("Correct!\n");
-        return true;
     }
 
     public static void playGame() {
-        boolean isAnswerCorrect = true;
         String playerName = Greeting.greet();
 
         while (!isExitSelected) {
-            makeMenu();
-            int gameNumber = selectMenuItem();
-            makeGameData(gameNumber);
-            System.out.println(Games.values()[gameNumber].getRule());
+            createMenu();
+            Game game = selectMenuItem();
+            createGameData(game);
+            System.out.println(game.getRule());
+            isAnswerCorrect = true;
             for (RoundData round : ROUND_DATA) {
-                if (!playRound(round, playerName)) {
-                    isAnswerCorrect = false;
+                playRound(round, playerName);
+                if (!isAnswerCorrect) {
                     break;
                 }
             }

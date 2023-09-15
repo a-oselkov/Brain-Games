@@ -1,12 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.Gaming;
+import hexlet.code.Gameable;
 import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
-public class Prime implements Gaming {
+public class Prime implements Gameable {
     @Override
-    public RoundData makeGame() {
+    public RoundData createRoundData() {
         int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
         String question = String.valueOf(number);
         String answer = isPrime(number);
