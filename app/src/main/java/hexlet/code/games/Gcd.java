@@ -5,6 +5,7 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Gcd implements Gameable {
+    private final String rule = "Find the greatest common divisor of given numbers.";
     @Override
     public RoundData createRoundData() {
         int number1 = Utils.generateRandomNumber();
@@ -21,5 +22,9 @@ public class Gcd implements Gameable {
             number2 = temp;
         }
         return number1;
+    }
+
+    public String getRule() {
+        return rule;
     }
 }

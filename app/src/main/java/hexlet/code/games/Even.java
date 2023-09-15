@@ -5,6 +5,7 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Even implements Gameable {
+    private final String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     @Override
     public RoundData createRoundData() {
         int number = Utils.generateRandomNumber();
@@ -19,6 +20,8 @@ public class Even implements Gameable {
         return "no";
     }
 
-
+    public String getRule() {
+        return rule;
+    }
 }
 

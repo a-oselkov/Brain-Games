@@ -8,6 +8,7 @@ public class Progression implements Gameable {
     private static final int MAX_MISSING_NUMBER_PLEASE = 9;
     private static final int MAX_STEP_PROGRESSION = 10;
     private String missingNumber;
+    private final String rule = "What number is missing in the progression?";
     @Override
     public RoundData createRoundData() {
         String progression = getProgression();
@@ -35,5 +36,9 @@ public class Progression implements Gameable {
             fistNumberProgression += step;
         }
         return String.valueOf(progression);
+    }
+
+    public String getRule() {
+        return rule;
     }
 }

@@ -16,7 +16,7 @@ public class Engine {
         System.out.println(String.format("%s - EXIT", Game.values().length));
     }
 
-    private static Game selectMenuItem() {
+    private static int selectMenuItem() {
         int lastMenuItem = Game.values().length;
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
@@ -31,12 +31,14 @@ public class Engine {
         }
         Game game = Game.values()[choice];
         System.out.println(String.format("You choice: %s - %s", choice, game));
-        return game;
+        return choice;
     }
 
-    private static void createGameData(Game game) {
+    private static void createGameData(int gameNumber) {
+        Gameable game = Game.values()[gameNumber].getGame();
+        System.out.println(game.getRule());
         for (int i = 0; i < MAX_ROUNDS; i++) {
-            ROUND_DATA[i] = game.getGame().createRoundData();
+            ROUND_DATA[i] = game.createRoundData();
         }
     }
 
@@ -61,9 +63,8 @@ public class Engine {
 
         while (!isExitSelected) {
             createMenu();
-            Game game = selectMenuItem();
-            createGameData(game);
-            System.out.println(game.getRule());
+            int gameNumber = selectMenuItem();
+            createGameData(gameNumber);
             isAnswerCorrect = true;
             for (RoundData round : ROUND_DATA) {
                 playRound(round, playerName);

@@ -5,6 +5,7 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Calc implements Gameable {
+    private final String rule = "What is the result of the expression?";
     @Override
     public RoundData createRoundData() {
         int number1 = Utils.generateRandomNumber();
@@ -26,6 +27,10 @@ public class Calc implements Gameable {
             }
         };
         return new RoundData(question, answer);
+    }
+
+    public String getRule() {
+        return rule;
     }
 }
 
