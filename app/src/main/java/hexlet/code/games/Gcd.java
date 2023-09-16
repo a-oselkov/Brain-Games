@@ -5,26 +5,34 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Gcd implements Gameable {
-    private final String rule = "Find the greatest common divisor of given numbers.";
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
+    private int number1;
+    private int number2;
     @Override
-    public RoundData createRoundData() {
-        int number1 = Utils.generateRandomNumber();
-        int number2 = Utils.generateRandomNumber();
-        int gcd = getGcd(number1, number2);
-        String question = number1 + " " + number2;
-        String answer = String.valueOf(gcd);
-        return new RoundData(question, answer);
+    public RoundData getRoundData() {
+        return new RoundData(generateQuestion(), generateAnswer());
     }
-    private int getGcd(int number1, int number2) {
+
+    @Override
+    public String generateQuestion() {
+        number1 = Utils.generateRandomNumber();
+        number2 = Utils.generateRandomNumber();
+        return number1 + " " + number2;
+    }
+
+    @Override
+    public String generateAnswer() {
         while (number2 > 0) {
             int temp = number1 % number2;
             number1 = number2;
             number2 = temp;
         }
-        return number1;
+        return String.valueOf(number1);
     }
 
-    public String getRule() {
-        return rule;
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
     }
 }

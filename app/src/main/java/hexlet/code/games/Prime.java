@@ -5,27 +5,36 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Prime implements Gameable {
-    private final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String YES = "yes";
+    private static final String NO = "no";
+    private int number;
     @Override
-    public RoundData createRoundData() {
-        int number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
-        String question = String.valueOf(number);
-        String answer = isPrime(number);
-        return new RoundData(question, answer);
+    public RoundData getRoundData() {
+        return new RoundData(generateQuestion(), generateAnswer());
     }
-    private String isPrime(int number) {
+
+    @Override
+    public String generateQuestion() {
+        number = Utils.generateRandomNumber(1, Utils.MAX_NUMBER);
+        return String.valueOf(number);
+    }
+
+    @Override
+    public String generateAnswer() {
         if (number == 1) {
-            return "no";
+            return NO;
         }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
-                return "no";
+                return NO;
             }
         }
-        return "yes";
+        return YES;
     }
 
-    public String getRule() {
-        return rule;
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
     }
 }

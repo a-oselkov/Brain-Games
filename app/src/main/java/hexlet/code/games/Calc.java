@@ -5,32 +5,41 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Calc implements Gameable {
-    private final String rule = "What is the result of the expression?";
+    private static final String DESCRIPTION = "What is the result of the expression?";
+    private String operation;
+    private int number1;
+    private int number2;
+
     @Override
-    public RoundData createRoundData() {
-        int number1 = Utils.generateRandomNumber();
-        int number2 = Utils.generateRandomNumber();
-        String operation = String.valueOf(Utils.generateRandomNumber(0, 2));
-        String question;
-        String answer = switch (operation) {
-            case "1" -> {
-                question = number1 + " + " + number2;
-                yield String.valueOf(number1 + number2);
-            }
-            case "2" -> {
-                question = number1 + " - " + number2;
-                yield String.valueOf(number1 - number2);
-            }
-            default -> {
-                question = number1 + " * " + number2;
-                yield String.valueOf(number1 * number2);
-            }
-        };
-        return new RoundData(question, answer);
+    public RoundData getRoundData() {
+        return new RoundData(generateQuestion(), generateAnswer());
     }
 
-    public String getRule() {
-        return rule;
+    @Override
+    public String generateQuestion() {
+        number1 = Utils.generateRandomNumber();
+        number2 = Utils.generateRandomNumber();
+        operation = String.valueOf(Utils.generateRandomNumber(0, 2));
+
+        return switch (operation) {
+            case "1" -> number1 + " + " + number2;
+            case "2" -> number1 + " - " + number2;
+            default -> number1 + " * " + number2;
+        };
+    }
+
+    @Override
+    public String generateAnswer() {
+        return switch (operation) {
+            case "1" -> String.valueOf(number1 + number2);
+            case "2" -> String.valueOf(number1 - number2);
+            default -> String.valueOf(number1 * number2);
+        };
+    }
+
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
     }
 }
 

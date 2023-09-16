@@ -5,18 +5,18 @@ import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
 public class Progression implements Gameable {
+    private static final String DESCRIPTION = "What number is missing in the progression?";
     private static final int MAX_MISSING_NUMBER_PLEASE = 9;
     private static final int MAX_STEP_PROGRESSION = 10;
     private String missingNumber;
-    private final String rule = "What number is missing in the progression?";
+
     @Override
-    public RoundData createRoundData() {
-        String progression = getProgression();
-        String question = String.valueOf(progression);
-        String answer = missingNumber;
-        return new RoundData(question, answer);
+    public RoundData getRoundData() {
+        return new RoundData(generateQuestion(), generateAnswer());
     }
-    private String getProgression() {
+
+    @Override
+    public String generateQuestion() {
         StringBuilder progression = new StringBuilder();
         int fistNumberProgression = Utils.generateRandomNumber();
         int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
@@ -38,7 +38,13 @@ public class Progression implements Gameable {
         return String.valueOf(progression);
     }
 
-    public String getRule() {
-        return rule;
+    @Override
+    public String generateAnswer() {
+        return missingNumber;
+    }
+
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
     }
 }
