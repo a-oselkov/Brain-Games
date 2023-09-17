@@ -4,7 +4,7 @@ import hexlet.code.Gameable;
 import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
-public class Even implements Gameable {
+public final class Even implements Gameable {
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private int number;
 

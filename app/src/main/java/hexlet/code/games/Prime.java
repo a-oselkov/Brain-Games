@@ -4,7 +4,7 @@ import hexlet.code.Gameable;
 import hexlet.code.RoundData;
 import hexlet.code.Utils;
 
-public class Prime implements Gameable {
+public final class Prime implements Gameable {
     private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final String YES = "yes";
     private static final String NO = "no";

@@ -2,13 +2,23 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
-    private static final int MAX_ROUNDS = 3;
-    private static final RoundData[] ROUND_DATA = new RoundData[MAX_ROUNDS];
-    private static boolean isExitSelected = false;
-    private static boolean isAnswerCorrect;
+public final class Engine {
+    private final int maxRounds = 3;
+    private final RoundData[] roundData = new RoundData[maxRounds];
+    private String playerName;
+    private int selectedGameNumber;
+    private boolean isExitSelected = false;
+    private boolean isAnswerCorrect;
 
-    private static void createMenu() {
+    public void greet() {
+        System.out.println("Welcome to the Brain Games!\n"
+                + "May I have your name?");
+        Scanner scanner = new Scanner(System.in);
+        playerName = scanner.nextLine();
+        System.out.println("Hello, " + playerName + "!\n");
+    }
+
+    public void createMenu() {
         int menuItemAmount = Game.values().length;
         System.out.println(String.format("Select menu item 0-%s", menuItemAmount));
         for (int i = 0; i < Game.values().length; i++) {
@@ -17,36 +27,36 @@ public class Engine {
         System.out.println(String.format("%s - EXIT", menuItemAmount));
     }
 
-    private static int selectMenuItem() {
-        int lastMenuItem = Game.values().length;
+    public void selectGameNumber() {
+        int exitMenuItem = Game.values().length;
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-        if (choice == lastMenuItem) {
+        selectedGameNumber = scanner.nextInt();
+        if (selectedGameNumber == exitMenuItem) {
             System.out.println("Goodbye.");
             isExitSelected = true;
             System.exit(0);
         }
-        if (choice < 0 || choice > lastMenuItem) {
+        if (selectedGameNumber < 0 || selectedGameNumber > exitMenuItem) {
             System.out.println("Incorrect selection, please try again.");
-            selectMenuItem();
+            selectGameNumber();
         }
-        Game game = Game.values()[choice];
-        System.out.println(String.format("You choice: %s - %s", choice, game));
-        return choice;
+        System.out.println(String.format("You choice: %s - %s",
+                selectedGameNumber, Game.values()[selectedGameNumber]));
     }
 
-    private static void generateGameData(int gameNumber) {
-        Gameable game = Game.values()[gameNumber].getGame();
+    public void generateGameData() {
+        Gameable game = Game.values()[selectedGameNumber].getGame();
         System.out.println(game.getDescription());
-        for (int i = 0; i < MAX_ROUNDS; i++) {
-            ROUND_DATA[i] = game.getRoundData();
+        for (int i = 0; i < maxRounds; i++) {
+            roundData[i] = game.getRoundData();
         }
     }
 
-    private static void playRound(RoundData roundData, String playerName) {
+    public void playRound(RoundData roundData, String playerName) {
         System.out.print(String.format("""
                 Question: %s
                 Your answer:\s""", roundData.getQuestion()));
+
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         if (!answer.equals(roundData.getAnswer())) {
@@ -54,29 +64,31 @@ public class Engine {
                     \n'%s' is wrong answer ;(. Correct answer was '%s'.
                     Let's try again, %s!\n""", answer, roundData.getAnswer(), playerName));
             isAnswerCorrect = false;
+            System.out.println("Press 'Enter' to return to the menu");
+            scanner.nextLine();
             return;
         }
         System.out.println("Correct!\n");
     }
 
-    public static void playGame() {
-        String playerName = Greeting.greet();
-
-        while (!isExitSelected) {
-            createMenu();
-            int gameNumber = selectMenuItem();
-            generateGameData(gameNumber);
-            isAnswerCorrect = true;
-            for (RoundData round : ROUND_DATA) {
-                playRound(round, playerName);
-                if (!isAnswerCorrect) {
-                    break;
-                }
-            }
-            if (isAnswerCorrect) {
-                System.out.println(String.format("Congratulations, %s, you won!\n", playerName));
+    public void playGame() {
+        isAnswerCorrect = true;
+        for (RoundData round : roundData) {
+            playRound(round, playerName);
+            if (!isAnswerCorrect) {
+                break;
             }
         }
+        if (isAnswerCorrect) {
+            System.out.println(String.format("Congratulations, %s, you won!\n", playerName));
+            System.out.println("Press 'Enter' to return to the menu");
+            Scanner scanner = new Scanner(System.in);
+            scanner.nextLine();
+        }
+    }
+
+    public boolean isExitSelected() {
+        return isExitSelected;
     }
 }
 

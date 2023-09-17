@@ -1,6 +1,6 @@
 package hexlet.code;
 
-public class RoundData {
+public final class RoundData {
     private final String question;
     private final String answer;
 
@@ -9,11 +9,11 @@ public class RoundData {
         this.answer = answer;
     }
 
-    public final String getQuestion() {
+    public String getQuestion() {
         return question;
     }
 
-    public final String getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 }
