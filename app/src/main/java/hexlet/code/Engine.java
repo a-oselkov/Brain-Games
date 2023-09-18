@@ -3,12 +3,11 @@ package hexlet.code;
 import java.util.Scanner;
 
 public final class Engine {
-    private final int maxRounds = 3;
-    private final RoundData[] roundData = new RoundData[maxRounds];
+    private static final int MAX_ROUNDS = 3;
+    private static final RoundData[] ROUND_DATA = new RoundData[MAX_ROUNDS];
     private String playerName;
     private int selectedGameNumber;
     private boolean isExitSelected = false;
-    private boolean isAnswerCorrect;
 
     public void greet() {
         System.out.println("Welcome to the Brain Games!\n"
@@ -47,12 +46,12 @@ public final class Engine {
     public void generateGameData() {
         Gameable game = Game.values()[selectedGameNumber].getGame();
         System.out.println(game.getDescription());
-        for (int i = 0; i < maxRounds; i++) {
-            roundData[i] = game.getRoundData();
+        for (int i = 0; i < MAX_ROUNDS; i++) {
+            ROUND_DATA[i] = game.getRoundData();
         }
     }
 
-    public void playRound(RoundData roundData, String playerName) {
+    public boolean playRound(RoundData roundData) {
         System.out.print(String.format("""
                 Question: %s
                 Your answer:\s""", roundData.getQuestion()));
@@ -62,33 +61,32 @@ public final class Engine {
         if (!answer.equals(roundData.getAnswer())) {
             System.out.println(String.format("""
                     \n'%s' is wrong answer ;(. Correct answer was '%s'.
-                    Let's try again, %s!\n""", answer, roundData.getAnswer(), playerName));
-            isAnswerCorrect = false;
-            System.out.println("Press 'Enter' to return to the menu");
-            scanner.nextLine();
-            return;
+                    Let's try again, %s!""", answer, roundData.getAnswer(), playerName));
+            returnToMenu();
+            return false;
         }
         System.out.println("Correct!\n");
+        return true;
     }
 
     public void playGame() {
-        isAnswerCorrect = true;
-        for (RoundData round : roundData) {
-            playRound(round, playerName);
-            if (!isAnswerCorrect) {
-                break;
+        for (RoundData round : ROUND_DATA) {
+            if (!playRound(round)) {
+                return;
             }
         }
-        if (isAnswerCorrect) {
-            System.out.println(String.format("Congratulations, %s, you won!\n", playerName));
-            System.out.println("Press 'Enter' to return to the menu");
-            Scanner scanner = new Scanner(System.in);
-            scanner.nextLine();
-        }
+        System.out.println(String.format("Congratulations, %s, you won!", playerName));
+        returnToMenu();
     }
 
     public boolean isExitSelected() {
         return isExitSelected;
+    }
+
+    private void returnToMenu() {
+        System.out.println("\nPress 'Enter' to return to the menu");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 }
 
