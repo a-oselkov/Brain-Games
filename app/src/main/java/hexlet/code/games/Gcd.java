@@ -23,16 +23,20 @@ public class Gcd implements Gameable {
 
     @Override
     public String generateAnswer() {
-        while (number2 > 0) {
-            int temp = number1 % number2;
-            number1 = number2;
-            number2 = temp;
-        }
-        return String.valueOf(number1);
+        return String.valueOf(findGCD(number1, number2));
     }
 
     @Override
     public String getDescription() {
         return DESCRIPTION;
+    }
+
+    private int findGCD(int number1, int number2) {
+        while (number2 > 0) {
+            int temp = number1 % number2;
+            number1 = number2;
+            number2 = temp;
+        }
+        return number1;
     }
 }
