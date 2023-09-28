@@ -6,6 +6,8 @@ import hexlet.code.Utils;
 
 public final class Even implements Gameable {
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String YES = "yes";
+    private static final String NO = "no";
     private int number;
 
     @Override
@@ -19,15 +21,19 @@ public final class Even implements Gameable {
     }
     @Override
     public String generateAnswer() {
-        if (number % 2 == 0) {
-            return "yes";
+        if (isEven(number)) {
+            return YES;
         }
-        return "no";
+        return NO;
     }
 
     @Override
     public String getDescription() {
         return DESCRIPTION;
+    }
+
+    private boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
 
