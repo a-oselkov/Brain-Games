@@ -17,25 +17,7 @@ public class Progression implements Gameable {
 
     @Override
     public String generateQuestion() {
-        StringBuilder progression = new StringBuilder();
-        int fistNumberProgression = Utils.generateRandomNumber();
-        int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
-        int missingNumberPlace = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
-
-        for (int i = 0; i < missingNumberPlace; i++) {
-            progression.append(fistNumberProgression).append(" ");
-            fistNumberProgression += step;
-        }
-
-        progression.append(".. ");
-        missingNumber = String.valueOf(fistNumberProgression);
-        fistNumberProgression += step;
-
-        for (int i = missingNumberPlace; i < MAX_MISSING_NUMBER_PLEASE; i++) {
-            progression.append(fistNumberProgression).append(" ");
-            fistNumberProgression += step;
-        }
-        return String.valueOf(progression);
+        return generateProgression();
     }
 
     @Override
@@ -46,5 +28,27 @@ public class Progression implements Gameable {
     @Override
     public String getDescription() {
         return DESCRIPTION;
+    }
+
+    private String generateProgression() {
+        StringBuilder progression = new StringBuilder();
+        int nextNumber = Utils.generateRandomNumber();
+        int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
+        int missingNumberPosition = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
+
+        for (int i = 0; i < missingNumberPosition; i++) {
+            progression.append(nextNumber).append(" ");
+            nextNumber += step;
+        }
+
+        progression.append(".. ");
+        missingNumber = String.valueOf(nextNumber);
+        nextNumber += step;
+
+        for (int i = missingNumberPosition; i < MAX_MISSING_NUMBER_PLEASE; i++) {
+            progression.append(nextNumber).append(" ");
+            nextNumber += step;
+        }
+        return String.valueOf(progression);
     }
 }
