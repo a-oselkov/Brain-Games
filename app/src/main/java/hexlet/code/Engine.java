@@ -19,11 +19,11 @@ public final class Engine {
 
     public void createMenu() {
         int menuItemAmount = Game.values().length;
-        System.out.println(String.format("Select menu item 0-%s", menuItemAmount));
+        System.out.printf("Select menu item 0-%s\n", menuItemAmount);
         for (int i = 0; i < Game.values().length; i++) {
-            System.out.println(String.format("%s - %s", i, Game.values()[i]));
+            System.out.printf("%s - %s\n", i, Game.values()[i]);
         }
-        System.out.println(String.format("%s - EXIT", menuItemAmount));
+        System.out.printf("%s - EXIT\n", menuItemAmount);
     }
 
     public void selectGameNumber() {
@@ -39,8 +39,8 @@ public final class Engine {
             System.out.println("Incorrect selection, please try again.");
             selectGameNumber();
         }
-        System.out.println(String.format("You choice: %s - %s",
-                selectedGameNumber, Game.values()[selectedGameNumber]));
+        System.out.printf("You choice: %s - %s\n",
+                selectedGameNumber, Game.values()[selectedGameNumber]);
     }
 
     public void generateGameData() {
@@ -52,16 +52,15 @@ public final class Engine {
     }
 
     public boolean playRound(RoundData roundData) {
-        System.out.print(String.format("""
+        System.out.printf("""
                 Question: %s
-                Your answer:\s""", roundData.getQuestion()));
-
+                Your answer:\s""", roundData.getQuestion());
         Scanner scanner = new Scanner(System.in);
         String answer = scanner.nextLine();
         if (!answer.equals(roundData.getAnswer())) {
-            System.out.println(String.format("""
+            System.out.printf("""
                     \n'%s' is wrong answer ;(. Correct answer was '%s'.
-                    Let's try again, %s!""", answer, roundData.getAnswer(), playerName));
+                    Let's try again, %s!""", answer, roundData.getAnswer(), playerName);
             returnToMenu();
             return false;
         }
@@ -75,7 +74,7 @@ public final class Engine {
                 return;
             }
         }
-        System.out.println(String.format("Congratulations, %s, you won!", playerName));
+        System.out.printf("Congratulations, %s, you won!", playerName);
         returnToMenu();
     }
 
@@ -84,7 +83,7 @@ public final class Engine {
     }
 
     private void returnToMenu() {
-        System.out.println("\nPress 'Enter' to return to the menu");
+        System.out.println("\n\nPress 'Enter' to return to the menu");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
     }

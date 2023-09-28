@@ -22,19 +22,26 @@ public final class Prime implements Gameable {
 
     @Override
     public String generateAnswer() {
-        if (number == 1) {
-            return NO;
+        if (isPrime(number)) {
+            return YES;
         }
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return NO;
-            }
-        }
-        return YES;
+        return NO;
     }
 
     @Override
     public String getDescription() {
         return DESCRIPTION;
+    }
+
+    private boolean isPrime(int number) {
+        if (number == 1) {
+            return false;
+        }
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

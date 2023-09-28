@@ -6,7 +6,7 @@ public class Utils {
         max = max - min;
         return (int) (Math.random() * (max + 1) + min);
     }
-    public static int generateRandomNumber() {                  //Генератор случайного числа в диапозоне [0 ; 100]
+    public static int generateRandomNumber() {                  //Генератор случайного числа в диапазоне [0 ; 100]
         return (int) (Math.random() * (MAX_NUMBER + 1));
     }
 }
