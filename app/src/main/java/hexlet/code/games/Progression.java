@@ -8,7 +8,7 @@ public class Progression implements Gameable {
     private static final String DESCRIPTION = "What number is missing in the progression?";
     private static final int MAX_MISSING_NUMBER_PLEASE = 9;
     private static final int MAX_STEP_PROGRESSION = 10;
-    private String missingNumber;
+    private int missingNumber;
 
     @Override
     public RoundData getRoundData() {
@@ -22,7 +22,7 @@ public class Progression implements Gameable {
 
     @Override
     public String generateAnswer() {
-        return missingNumber;
+        return String.valueOf(missingNumber);
     }
 
     @Override
@@ -32,22 +32,22 @@ public class Progression implements Gameable {
 
     private String generateProgression() {
         StringBuilder progression = new StringBuilder();
-        int nextNumber = Utils.generateRandomNumber();
+        int numberOnPosition = Utils.generateRandomNumber();
         int step = Utils.generateRandomNumber(1, MAX_STEP_PROGRESSION);
         int missingNumberPosition = Utils.generateRandomNumber(0, MAX_MISSING_NUMBER_PLEASE);
 
         for (int i = 0; i < missingNumberPosition; i++) {
-            progression.append(nextNumber).append(" ");
-            nextNumber += step;
+            progression.append(numberOnPosition).append(" ");
+            numberOnPosition += step;
         }
 
         progression.append(".. ");
-        missingNumber = String.valueOf(nextNumber);
-        nextNumber += step;
+        missingNumber = numberOnPosition;
+        numberOnPosition += step;
 
         for (int i = missingNumberPosition; i < MAX_MISSING_NUMBER_PLEASE; i++) {
-            progression.append(nextNumber).append(" ");
-            nextNumber += step;
+            progression.append(numberOnPosition).append(" ");
+            numberOnPosition += step;
         }
         return String.valueOf(progression);
     }
